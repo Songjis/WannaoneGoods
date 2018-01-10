@@ -67,17 +67,18 @@ a{
 
 /*수평선*/
 hr{
+	
     border: solid 2px gray;
     margin: 2% 0;
-    width: 100%;
+    width: 98%;
     float: left;
-    
+    margin-left:1%;
 }
 
 #profile{
     float: left;
     width: 50%;
-    height: 60%;
+    height: 70%;
     font-size: 2rem;
     background-color: aqua;
 }
