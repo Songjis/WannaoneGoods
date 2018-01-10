@@ -1,0 +1,352 @@
+/*body id*/
+#top{
+   width: 100%;
+   /*background-color: azure; */  
+}
+/*중간 큰틀*/
+#bigcontainer{
+    background-color: beige;
+    width: 70%;
+    height: 3800px;
+    margin: 0 15%;
+}
+/*=========== 상단메뉴바======*/
+#header{
+    background-color:white; 
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+.navbar{
+    width: 70%;
+    margin:  0 15%;
+    
+}
+.container-fluid{
+    padding: 1%;
+    color: black;
+}
+/*폰트컬러블랙*/
+a{
+    color: black;
+    font-size: 17px;
+}
+
+@media (max-width : 768px){
+    /*상단바 고정*/
+    .navbar-fixed-top {
+        position: relative;
+    }
+}
+
+/*상품이미지*/
+#banner{
+    margin-top: 7%;
+}
+
+/*버튼틀 속성*/
+#btndouble{
+    width: 100%;
+    height: 70px;
+}
+/*버튼 속성*/
+#btncart{
+    font-size: 2rem;
+    font-weight: 700;
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+#btnbuy{
+    font-size: 2rem;
+    font-weight: 700;
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+/*==============상품============*/
+/*상품큰틀*/
+#detail{
+    width: 100%;
+    height: 3000px;
+   
+    background-color:ghostwhite;
+    float: left;
+    
+}
+/*상품글씨*/
+#h1{
+    padding: 1%;
+    font-size: 5rem;
+    font-weight: 700;
+    text-align: center;
+}
+#h2{
+    padding: 1%;
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+}
+/*선택옵션 틀*/
+#select{
+    width: 100%;
+    height: 60px;
+}
+
+
+h3{
+    float: left;
+    width: 48%;
+    text-align: right;
+    font-weight: 600;
+    margin-top: 1%;
+}
+
+/*드랍다운*/
+#drop{
+   margin-top: 0.5%;
+    float: left; 
+    width:12%;
+}
+
+/*드랍다운버튼크기*/
+#menu1{
+    width: 100%;
+}
+
+/*수평선*/
+hr{
+    border: solid 2px gray;
+    margin: 2% 0;
+    width: 100%;
+    float: left;
+    
+}
+
+/*수량 틀*/
+#count{
+    width: 100%;
+    height: 60px;
+}
+
+/*수량input*/
+#count_n{
+    margin-top: 1%;
+    width: 12%;
+    height: 50%;
+    font-weight: 700;
+    text-align: center;
+}
+
+/*디테일 페이지 내용 사진*/
+
+
+#img{
+    position: center;
+    float: left;
+    width: 100%;
+    margin-bottom: 2%;
+}
+@media (max-width:1666px){
+    .container{
+        width: 100%;
+    }
+}
+
+/*
+@media (min-width:768px) and (max-width : 1665px){
+    
+    #img {
+        float: left;
+        display: block;
+        position: center;
+        width: 75%;
+        height: auto;
+    }
+}*/
+
+
+
+#delivery{
+    float: left;
+    
+    width: 100%;
+    height: 400px;
+    /*background-color: cadetblue;*/
+    margin-top: 3%;
+}
+
+
+/*=================푸터==================*/
+/*푸터큰틀*/
+footer{
+    position:relative;
+    width: 100%;
+    height: 200px;
+    background-color: lightblue;
+    float: left;
+}
+/*푸터윗부분*/
+#footer_up{
+    margin:0 15%;
+    width: 70%;
+    height: 40%;
+    background-color: aquamarine;
+}
+/*푸터아랫부분*/
+#footer_down{
+    margin: 0 15%;
+    width: 70%;
+    height: 60%;
+    background-color: azure;
+}
+h6{
+    margin: 1% 0;
+    margin-top: 0;
+    font-style: italic;
+    text-align: center;
+    font-size: 3rem; 
+}
+h7{
+    font-size: 2rem;
+    text-align: center;
+    padding: 0 5%;
+}
+/*alert창*/
+.alert-info{
+     
+     font-size: 2rem;
+     height: 100%;
+     margin: 0;
+}
+
+
+@media (max-width: 768px){
+    h7{
+        font-size: 1.5rem;
+        display: block;
+    }
+    
+    #bigcontainer{
+        height: 2600px;
+    }
+    #detail{
+        height: 2200px;
+    }
+}
+@media (max-width: 628px){
+    h3{
+        font-size: 2rem;
+    }
+    #menu1{
+        width: 130%;
+        
+    }
+    #detail{
+        height: 2000px;
+    }
+    #bigcontainer{
+        height: 2300px;
+    }
+    p{
+        font-size: 0.9rem;
+    }
+    h6{
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 494px){
+    #bigcontainer{
+        width: 100%;
+        margin: 0;
+    }
+    
+    h6{
+        font-size: 1.5rem;
+    }
+    h7 {
+        font-size: 1.5rem;
+        display: block;
+    }
+    p{
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 375px){
+    #footer_up p{
+        font-size: 0.5rem;
+    }
+}
+
+@media (max-width:320px){
+    #h1{
+        font-size: 4rem;
+    }
+    h3{
+        font-size: 1.5rem;
+    }
+    #menu1{
+        padding: 1% 10%;
+        width: 150%;
+    }
+    #select{
+        height: 30px;
+    }
+    #count{
+        height: 30px;
+    }
+    #count_n{
+        height: 60%;
+    }
+    #detail{
+        height: 1700px;
+    }
+    #bigcontainer{
+        height: 2000px;
+    }
+    #btncart, #btnbuy{
+        height: 50%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,248 @@
+/*body id*/
+#top{
+   width: 100%;
+   /*background-color: azure; */  
+}
+/*중간 큰틀*/
+#bigcontainer{
+    background-color: beige;
+    width: 70%;
+    height: 2600px;
+    margin: 0 15%;
+}
+/*=========== 상단메뉴바======*/
+#header{
+    background-color:white; 
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+.navbar{
+    width: 70%;
+    margin:  0 15%;
+    
+}
+.container-fluid{
+    padding: 1%;
+    color: black;
+}
+/*폰트컬러블랙*/
+a{
+    color: black;
+    font-size: 17px;
+}
+
+@media (max-width : 768px){
+    /*상단바 고정*/
+    .navbar-fixed-top {
+        position: relative;
+    }
+}
+
+/*=========== 이미지 ===========*/
+
+#banner{
+    margin-top: 7%;
+}
+
+
+
+
+
+/*탭*/
+
+
+#figure_btn{
+   width: 15%;
+    height: 3%;
+   
+}
+
+
+/*==============피규어상품============*/
+/*피규어상품큰틀*/
+#figure{
+    width: 100%;
+    height: 1700px;
+    background-color:ghostwhite;
+    float: left;
+    
+}
+/*피규어상품글씨*/
+#h1{
+    padding: 1%;
+    font-size: 3rem;
+    font-weight: 700;
+    
+}
+
+/*드랍다운*/
+#drop{
+   
+    float: right; 
+    width: 14.5%;
+}
+
+
+/*수평선*/
+hr{
+    border: solid 2px gray;
+    margin: 2% 0;
+    width: 100%;
+    float: left;
+    
+}
+/*figure 박스*/
+#pop_c1{
+    width: 32.3333%;
+    height: 25%;
+    margin-left: 0.5%;
+    margin-right:0.5%;
+    margin-bottom: 3%;
+    background-color: azure;
+    float: left;
+}
+/*사진*/
+.pop_p1{
+    background-color: aquamarine;
+    width: 100%;
+    height:89%;
+    
+}
+
+#pic{
+    width: 100%;
+    height: 77%;
+    background-color: darksalmon;
+}
+
+h3{
+    margin: 2.5%;
+}
+h4{
+    margin: 3%;
+}
+
+#title{
+    float: left;
+    width:100%;
+    background-color: azure;
+    height: 12%;
+    text-align: center;
+}
+
+#price{
+    float: left;
+    width: 100%;
+    background-color: blanchedalmond;
+    height: 11%;
+    text-align: center;
+    
+}
+
+
+
+/*바로가기버튼 틀*/
+.pop_btn{
+    width: 100%;
+    height: 10%;
+    
+}
+/*버튼속성*/
+.btn{
+    font-size: 2rem;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+
+/*=================푸터==================*/
+/*푸터큰틀*/
+footer{
+    position:relative;
+    width: 100%;
+    height: 200px;
+    background-color: lightblue;
+    float: left;
+}
+/*푸터윗부분*/
+#footer_up{
+    margin:0 15%;
+    width: 70%;
+    height: 40%;
+    background-color: aquamarine;
+}
+/*푸터아랫부분*/
+#footer_down{
+    margin: 0 15%;
+    width: 70%;
+    height: 60%;
+    background-color: azure;
+}
+h6{
+    margin: 1% 0;
+    margin-top: 0;
+    font-style: italic;
+    text-align: center;
+    font-size: 3rem; 
+}
+h7{
+    font-size: 2rem;
+    text-align: center;
+    padding: 0 5%;
+}
+/*alert창*/
+.alert-info{
+     
+     font-size: 2rem;
+     height: 100%;
+     margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
