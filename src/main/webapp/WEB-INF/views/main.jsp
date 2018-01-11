@@ -20,25 +20,24 @@
        <nav class="navbar">
           <div class="container-fluid ">
             <div class="navbar-header">
-              <a class="navbar-brand" href="#" style="font-size: 25px">Wannaone's Goods</a>
+              <a class="navbar-brand" href="/" style="font-size: 25px">Wannaone's Goods</a>
             </div>
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">카테고리 <span class="caret"></span></a>
+              <li class="active"><a href="/">Home</a></li>
+              <li class="dropdown" onclick="location.href='/category'"><a class="dropdown-toggle" data-toggle="dropdown" href="/category">카테고리 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">리빙</a></li>
-                  <li><a href="#">피규어</a></li>
-                  <li><a href="#">악세사리</a></li>
-                  <li><a href="#">의류</a></li>
-                  <li><a href="#">문구</a></li>
+                  <li><a href="/living">리빙</a></li>
+                  <li><a href="/figure">피규어</a></li>
+                  <li><a href="/accesory">악세사리</a></li>
+                  <li><a href="/clothes">의류</a></li>
                 </ul>
               </li>
                 <!--<li><a href="#">Story</a></li>-->
-              <li><a href="#">MyPage</a></li>
+              <li><a href="/mypage">MyPage</a></li>
                 <!--<li><a href="#">고객센터</a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+              <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
               <!--<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>-->
             </ul>
           </div>

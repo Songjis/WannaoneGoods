@@ -79,11 +79,15 @@ a{
 }
 
 /*드랍다운*/
-#drop{
-   
-    float: right; 
+#menu1{
+    float: right;
+    margin-top: 5%;
     width: 14.5%;
+    height:40px;
+    font-weight:bold;
+    font-size:1.5rem;
 }
+
 
 
 /*수평선*/

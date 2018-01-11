@@ -20,25 +20,24 @@
        <nav class="navbar">
           <div class="container-fluid ">
             <div class="navbar-header">
-              <a class="navbar-brand" href="#" style="font-size: 25px">Wannaone's Goods</a>
+              <a class="navbar-brand" href="/" style="font-size: 25px">Wannaone's Goods</a>
             </div>
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">카테고리 <span class="caret"></span></a>
+              <li class="active"><a href="/">Home</a></li>
+              <li class="dropdown" onclick="location.href='/category'"><a class="dropdown-toggle" data-toggle="dropdown" href="/category">카테고리 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">리빙</a></li>
-                  <li><a href="#">피규어</a></li>
-                  <li><a href="#">악세사리</a></li>
-                  <li><a href="#">의류</a></li>
-                  <li><a href="#">문구</a></li>
+                  <li><a href="/living">리빙</a></li>
+                  <li><a href="/figure">피규어</a></li>
+                  <li><a href="/accesory">악세사리</a></li>
+                  <li><a href="/clothes">의류</a></li>
                 </ul>
               </li>
                 <!--<li><a href="#">Story</a></li>-->
-              <li><a href="#">MyPage</a></li>
+              <li><a href="/mypage">MyPage</a></li>
                 <!--<li><a href="#">고객센터</a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+              <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
               <!--<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>-->
             </ul>
           </div>
@@ -59,25 +58,21 @@
             <h3>멤버 pick(필수!):</h3>
             
           <!--드랍다운-->
-            <div id="drop" class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">선택
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">강다니엘</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">황민현</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">옹성우</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">박지훈</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">라이관린</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">배진영</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">윤지성</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">이대휘</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">김재환</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">하성운</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">박우진</a></li>
-                  <li role="presentation" class="divider"></li>
-                  
-                </ul>
-           </div>
+            
+              <select name="select" id="menu1">
+			    <option value="1">강다니엘</option>
+			    <option value="2">황민현</option>
+			    <option value="3">옹성우</option>
+			    <option value="5">박지훈</option>
+			    <option value="6">라이관린</option>
+			    <option value="7">배진영</option>
+			    <option value="8">윤지성</option>
+			    <option value="9">이대휘</option>
+			    <option value="10">김재환</option>
+			    <option value="11">하성운</option>
+			    <option value="12">박우진</option>
+			  </select>
+          
         </div>
           
           <div id="count">
