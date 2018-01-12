@@ -6,5 +6,35 @@
    <select id="test" resultType="hashmap">
       select '테스트' as data
    </select>
+  <!-- 인기상품 가져올때 -->
+  <select id="poplist" resultType="hashmap" parameterType="hashmap">
+      select name from test order by hit desc limit 3;
+  </select>
    
+   <!-- 신상품가져올때 -->
+   <select id="newlist" resultType="hashmap" parameterType="hashmap">
+      select name, date from test order by date desc limit 3;
+   </select>
+  <!--  상품리스트가져올때 -->
+  <select id="selectList" resultType="hashmap" parameterType="hashmap">
+      select * from goods ORDER BY no DESC limit #{start}, #{viewRow};
+   </select>
+   
+  
+  <!-- 상품등록할때 -->
+  <insert id="InsertNews" parameterType="hashmap">
+      insert into goods(gimg, gname, gprice, gpick, content, type) values(#{gimg}, #{gname}, #{gprice},#{gpick},#{content}, #{type});
+   </insert>
+  
+  
+  <!-- 상품자세히볼때 -->
+  <select id ="selectDetail" resultType ="hashmap" parameterType="hashmap">
+ 	select * from Product where  gno= #{gno};
+	</select>
+  
+  <!-- 상품수정할때 -->
+  <update id="updateNews" parameterType="hashmap">
+      update goods set title=#{title}, contents=#{content}, days=#{days}, picName=#{picName}, picPath=#{picPath}, fileName=#{name}, filePath=#{path}  where no = #{no};
+   </update>
+  
 </mapper>
