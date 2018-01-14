@@ -6,15 +6,17 @@
    <select id="test" resultType="hashmap">
       select '테스트' as data
    </select>
+   
   <!-- 인기상품 가져올때 -->
-  <select id="poplist" resultType="hashmap" parameterType="hashmap">
-      select name from test order by hit desc limit 3;
+  <select id="poplist" resultType="hashmap">
+      select gimg from goods order by hit desc limit 6;
   </select>
    
    <!-- 신상품가져올때 -->
    <select id="newlist" resultType="hashmap" parameterType="hashmap">
-      select name, date from test order by date desc limit 3;
+      select gimg from goods order by date desc limit 3;
    </select>
+   
   <!--  상품리스트가져올때 -->
   <select id="selectList" resultType="hashmap" parameterType="hashmap">
       select * from goods ORDER BY no DESC limit #{start}, #{viewRow};

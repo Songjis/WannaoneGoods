@@ -29,5 +29,18 @@ public class HomeService implements HomeServiceInterface {
 				
 		return result;
 	}
+	
+	
+	@Override
+	public HashMap<String, Object> poplist(HashMap<String, Object> param){
+		result = new HashMap<String,Object>();
+		sqlID = namespace + ".poplist";
+		bean = new DaoBean("SelectList", sqlID, param);
+		
+		result.put("poplist", di.dao(bean));
+		
+		return result;
+	}
+	
 
 }

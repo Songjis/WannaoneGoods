@@ -9,6 +9,42 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="resources/main.css" rel="stylesheet" type="text/css" media="all">
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var data = [];
+	var tag = "";
+	
+	$.ajax({
+		url :"poplist"
+	}).done(function(d){
+		var pop = JSON.parse(d);
+		
+		var popdata= pop.poplist;
+		console.log(popdata);
+		for(var i = 0; i<popdata.length; i++){
+			tag ='<div class="pop_c2">' +
+		         '<div class="pop_p2"> <img src="' + popdata[i].gimg + '" class="popimg"></div>'+
+		         '<div class="pop_btn">'+
+		         '<button type="button" class="btn btn-default">보러가기</button>'+
+		         '</div>'+
+		         '</div>';
+		        $(".pop").append(tag);
+			}	
+ 		
+	});
+	
+	
+	
+});
+
+
+
+
+</script>
+   
+   
+   
    
 </head>
  <!--body-->   
@@ -115,45 +151,10 @@
       </div>
          <!--인기상품-->
       <div class="pop">
-            <h1>인기상품</h1>
+      		<h1>인기상품</h1>
+      		
           
-            <div class="pop_c1">
-                <div class="pop_p1"></div>
-                <div class="pop_btn">
-                <button type="button" class="btn btn-default" onclick="location.href = 'detail';">보러가기</button>
-                </div>
-          </div>
-            <div class="pop_c2">
-                <div class="pop_p2"></div>
-                <div class="pop_btn">
-                <button type="button" class="btn btn-default">보러가기</button>
-                </div>
-          </div>
-            <div class="pop_c3">
-                <div class="pop_p3"></div>
-                <div class="pop_btn">
-                <button type="button" class="btn btn-default">보러가기</button>
-                </div>
-          </div>
-          
-          <div class="pop_c4">
-                <div class="pop_p4"></div>
-                <div class="pop_btn">
-                <button type="button" class="btn btn-default">보러가기</button>
-                </div>
-          </div>
-            <div class="pop_c5">
-                <div class="pop_p5"></div>
-                <div class="pop_btn">
-                <button type="button" class="btn btn-default">보러가기</button>
-                </div>
-          </div>
-            <div class="pop_c6">
-                <div class="pop_p6"></div>
-                <div class="pop_btn">
-                <button type="button" class="btn btn-default">보러가기</button>
-                </div>
-          </div>
+            
               
               
       </div>

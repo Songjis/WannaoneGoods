@@ -6,4 +6,6 @@ public interface HomeServiceInterface {
 	
 	public HashMap<String, Object> DBTest(HashMap<String, Object> param);
 	
+	public HashMap<String, Object> poplist(HashMap<String, Object> param);
+	
 }

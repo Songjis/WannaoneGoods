@@ -31,6 +31,14 @@ public class HomeController {
 		return "main";
 	}
 	
+	@RequestMapping(value = "/poplist", method = RequestMethod.GET)
+	public ModelAndView poplist() {
+		logger.info("poplist");
+		return HttpUtil.returnJson(hsi.poplist(null));
+	}
+	
+	
+	
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
 	public String detail() {
 		logger.info("detail");
