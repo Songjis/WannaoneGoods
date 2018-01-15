@@ -31,10 +31,12 @@ public class HomeController {
 		return "main";
 	}
 	
-	@RequestMapping(value = "/poplist", method = RequestMethod.GET)
-	public ModelAndView poplist() {
-		logger.info("poplist");
-		return HttpUtil.returnJson(hsi.poplist(null));
+	
+	//메인에 인기상품이랑 신상품 불러오기
+	@RequestMapping(value = "/mainlist", method = RequestMethod.GET)
+	public ModelAndView mainlist() {
+		logger.info("mainlist");
+		return HttpUtil.returnJson(hsi.mainlist(null));
 	}
 	
 	

@@ -13,28 +13,38 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	var data = [];
-	var tag = "";
-	
-	$.ajax({
-		url :"poplist"
-	}).done(function(d){
-		var pop = JSON.parse(d);
+	$.get("mainlist").done(function(d){
+		var result = JSON.parse(d);
+// 		console.log(resut);
 		
-		var popdata= pop.poplist;
-		console.log(popdata);
-		for(var i = 0; i<popdata.length; i++){
-			tag ='<div class="pop_c2">' +
-		         '<div class="pop_p2"> <img src="' + popdata[i].gimg + '" class="popimg"></div>'+
-		         '<div class="pop_btn">'+
-		         '<button type="button" class="btn btn-default">보러가기</button>'+
-		         '</div>'+
-		         '</div>';
-		        $(".pop").append(tag);
-			}	
- 		
+		
+		//for문 간단 사용법 ->  http://api.jquery.com/jquery.each/
+		$.each( result.poplist, function( key, value ) {
+// 			console.log("poplist", key, value );
+			var tag="";
+			tag += '<div class="pop_c2">';
+			tag += '  <div class="pop_p2"> <img src="' + value.gimg + '" class="popimg"></div>';
+			tag += '  <div class="pop_btn">';
+			tag += '    <button type="button" class="btn btn-default">보러가기</button>';
+			tag += '  </div>';
+			tag += '</div>';
+	        $(".pop").append(tag);
+		});
+		
+		$.each( result.newlist, function( key, value ) {
+// 			console.log("newlist", key, value );
+			var tag = "";
+			tag += '<div id="new_c1">';
+			tag += '  <div class="new_p1"><img src="' + value.gimg + '" class="img-thumbnail" alt="Cinque Terre" style="width: 100%; height: 100%">';
+			tag += '  </div>';
+			tag += '  <div class="pop_btn">';
+			tag += '    <button type="button" class="btn btn-default">보러가기</button>';
+			tag += '  </div>';
+			tag += '</div>';
+            $("#new").append(tag);
+		});
+		
 	});
-	
-	
 	
 });
 
@@ -177,30 +187,8 @@ $(document).ready(function(){
       <div id="new">
             <h1>신상품</h1>
           
-            <div id="new_c1">
-                <div class="new_p1">
-                <img src="resources/img/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" style="width: 100%; height: 100%">
-                </div>
-                <div class="pop_btn">
-                <button type="button" class="btn btn-default">보러가기</button>
-                </div>
-          </div>
-            <div id="new_c2">
-                <div class="new_p2">
-               <img src="resources/img/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" style="width: 100%; height: 100%">
-                </div>
-                <div class="pop_btn">
-                <button type="button" class="btn btn-default">보러가기</button>
-                </div>
-          </div>
-            <div id="new_c3">
-                <div class="new_p3">
-               <img src="resources/img/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" style="width: 100%; height: 100%">                
-                </div>
-                <div class="pop_btn">
-                <button type="button" class="btn btn-default">보러가기</button>
-                </div>
-          </div>
+            
+          
       </div>
     
   </div><!--콘텐츠끝나는 부분-->

@@ -7,21 +7,25 @@
       select '테스트' as data
    </select>
    
-  <!-- 인기상품 가져올때 -->
+  <!-- 인기상품 6개 가져올때 -->
   <select id="poplist" resultType="hashmap">
       select gimg from goods order by hit desc limit 6;
   </select>
    
-   <!-- 신상품가져올때 -->
-   <select id="newlist" resultType="hashmap" parameterType="hashmap">
+   <!-- 신상품 3개 가져올때 -->
+   <select id="newlist" resultType="hashmap">
       select gimg from goods order by date desc limit 3;
    </select>
    
-  <!--  상품리스트가져올때 -->
-  <select id="selectList" resultType="hashmap" parameterType="hashmap">
-      select * from goods ORDER BY no DESC limit #{start}, #{viewRow};
+  <!--  카테고리상품리스트가져올때 -->
+  <select id="categorylist" resultType="hashmap" parameterType="hashmap">
+      select * from goods ORDER BY date DESC limit #{start}, #{viewRow};
    </select>
    
+  <!-- 게시글 개수 구하기 -->
+  <select id="totCnt" resultType="hashmap">
+     select count(*) as tot from goods
+  </select>
   
   <!-- 상품등록할때 -->
   <insert id="InsertNews" parameterType="hashmap">
@@ -30,8 +34,8 @@
   
   
   <!-- 상품자세히볼때 -->
-  <select id ="selectDetail" resultType ="hashmap" parameterType="hashmap">
- 	select * from Product where  gno= #{gno};
+  <select id ="selectDetail" resultType ="hashmap">
+ 	select * from goods where  gno= #{gno};
 	</select>
   
   <!-- 상품수정할때 -->

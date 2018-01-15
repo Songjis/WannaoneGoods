@@ -32,15 +32,35 @@ public class HomeService implements HomeServiceInterface {
 	
 	
 	@Override
-	public HashMap<String, Object> poplist(HashMap<String, Object> param){
+	public HashMap<String, Object> mainlist(HashMap<String, Object> param){
 		result = new HashMap<String,Object>();
+		
+		// poplist 가져오기
 		sqlID = namespace + ".poplist";
 		bean = new DaoBean("SelectList", sqlID, param);
-		
 		result.put("poplist", di.dao(bean));
+		
+		// newlist 가져오기
+		sqlID = namespace + ".newlist";
+		bean = new DaoBean("SelectList", sqlID, param);
+		result.put("newlist", di.dao(bean));
 		
 		return result;
 	}
+	
+	
+	
+	
+	
+	
+	/*@Override
+	public HashMap<String, Object> newlist(HashMap<String, Object> param){
+		result = new HashMap<String, Object>();
+		sqlID = namespace + ".newlist";
+		bean = new DaoBean("SelectList", sqlID, param);
+		result.put("newlist", di.dao(bean));
+		return result;
+	}*/
 	
 
 }
