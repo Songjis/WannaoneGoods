@@ -8,7 +8,6 @@ public interface HomeServiceInterface {
 	
 	public HashMap<String, Object> mainlist(HashMap<String, Object> param);
 	
-	
-	
+	public HashMap<String, Object> detail(HashMap<String, Object> param);
 	
 }

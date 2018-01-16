@@ -45,14 +45,12 @@
     </header>
   <div id="bigcontainer">
       
-    <img src="resources/img/banner.jpg" id="banner" class="img-responsive" alt="banner" width="100%" height=""> 
-      
-    
+    <img src="${detail.gimg}" id="banner" class="img-responsive" alt="banner" width="60%" height=""> 
 
          <!--상품detail-->
       <div id="detail">
-            <h1 id="h1">워너원 피규어</h1>
-            <h2 id="h2">가격 : 15000원</h2>
+            <h1 id="h1">${detail.gname}</h1>
+            <h2 id="h2">가격 : ${detail.gprice}</h2>
           
           <div id="select">
             <h3>멤버 pick(필수!):</h3>
@@ -91,10 +89,13 @@
           
           <div class="container">
            <img src="resources/img/banner.jpg" id="img" class="img-thumbnail">
-              
            <img src="resources/img/banner.jpg" id="img" class="img-thumbnail">
-          <img src="resources/img/banner.jpg" id="img" class="img-thumbnail">
+           <img src="resources/img/banner.jpg" id="img" class="img-thumbnail">
+           
           </div>
+          <div class="comment">
+              <h4>${detail.comment}</h4>
+           </div>
           
           <div id="delivery">
               <pre style="white-space: pre-wrap;"> ※ 주의사항

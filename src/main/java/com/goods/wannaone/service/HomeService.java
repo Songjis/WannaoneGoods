@@ -47,6 +47,18 @@ public class HomeService implements HomeServiceInterface {
 		
 		return result;
 	}
+
+
+	@Override
+	public HashMap<String, Object> detail(HashMap<String, Object> param) {
+		result = new HashMap<String,Object>();		
+		
+		sqlID = namespace + ".detail";
+		bean = new DaoBean("SelectOne", sqlID, param);
+		result = (HashMap<String, Object>) di.dao(bean);
+		
+		return result;
+	}
 	
 	
 	

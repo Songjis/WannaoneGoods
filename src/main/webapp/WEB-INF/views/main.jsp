@@ -13,11 +13,12 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	var data = [];
+	var data1 = [];
 	$.get("mainlist").done(function(d){
 		var result = JSON.parse(d);
-// 		console.log(resut);
-		
-		
+		console.log(result);
+		data = result.poplist;
+		data1 = result.newlist;
 		//for문 간단 사용법 ->  http://api.jquery.com/jquery.each/
 		$.each( result.poplist, function( key, value ) {
 // 			console.log("poplist", key, value );
@@ -44,7 +45,31 @@ $(document).ready(function(){
             $("#new").append(tag);
 		});
 		
+		
+		
+		//클릭한 게시글을 자세히 보기
+		$(".pop_btn").off();
+		$(".pop_btn").on("click",function(){console.log("dddd");
+			console.log(data);
+
+			var index = $(".pop_btn").index(this);
+			console.log("index : ", index);
+			
+			if(index <6){
+				var dNo = data[index].gno;
+				location.href = "detail?dNo=" + dNo;
+				console.log(dNo);
+			}else{
+				var dNo = data1[index-6].gno;
+				location.href = "detail?dNo=" + dNo;
+				console.log(dNo);
+			}
+		});
+		
 	});
+	
+	
+	
 	
 });
 

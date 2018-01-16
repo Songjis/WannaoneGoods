@@ -1,5 +1,9 @@
 package com.goods.wannaone.controller;
 
+import java.util.HashMap;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,9 +46,12 @@ public class HomeController {
 	
 	
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
-	public String detail() {
-		logger.info("detail");
-		return "detail";
+	public ModelAndView detail(HttpServletRequest req, ModelAndView mav) {
+		HashMap<String, Object> param = HttpUtil.paramMap(req);
+		logger.info("detail" + param);
+		mav.addObject("detail", hsi.detail(param));
+		mav.setViewName("detail");
+		return mav;
 	}
 	
 	

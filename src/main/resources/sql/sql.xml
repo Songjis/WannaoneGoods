@@ -9,12 +9,12 @@
    
   <!-- 인기상품 6개 가져올때 -->
   <select id="poplist" resultType="hashmap">
-      select gimg from goods order by hit desc limit 6;
+      select * from goods order by hit desc limit 6;
   </select>
    
    <!-- 신상품 3개 가져올때 -->
    <select id="newlist" resultType="hashmap">
-      select gimg from goods order by date desc limit 3;
+      select * from goods order by date desc limit 3;
    </select>
    
   <!--  카테고리상품리스트가져올때 -->
@@ -38,8 +38,12 @@
       </if>
 <!--     ORDER BY date  DESC limit #{start}, #{viewRow}; -->
    </select>
-  
-  
+   
+  <!--  카테고리상품 가져올때 -->
+  <select id="detail" parameterType="hashmap" resultType="hashmap">
+      select * from goods
+      where gno = #{dNo}
+   </select>
    
   <!-- 게시글 개수 구하기 -->
   <select id="totCnt" resultType="hashmap">
