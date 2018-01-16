@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html data-ng-app="Category" data-ng-controller="livingCtrl">
+<html data-ng-app="Category" data-ng-controller="categoryCtrl">
 <head>
 <title>Wannaone Goods</title>
 <meta charset="utf-8">
@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="resources/category/living.css" rel="stylesheet" type="text/css" media="all">
+  <link href="resources/category/category.css" rel="stylesheet" type="text/css" media="all">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
   <script src="resources/category/category.js"></script>
-   
+<!--   <script src="resources/category/categoryJquery.js"></script> 사용안함 에헴! -->
 </head>
  <!--body-->   
 <body id="top">
@@ -26,12 +26,13 @@
             </div>
             <ul class="nav navbar-nav">
               <li class="active"><a href="/">Home</a></li>
-              <li class="dropdown" onclick="location.href='/category'"><a class="dropdown-toggle" data-toggle="dropdown" href="/category">카테고리 <span class="caret"></span></a>
+              <li class="dropdown" onclick="location.href='category'"><a class="dropdown-toggle" data-toggle="dropdown" href="category">카테고리 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="/living">리빙</a></li>
-                  <li><a href="/figure">피규어</a></li>
-                  <li><a href="/accesory">악세사리</a></li>
-                  <li><a href="/clothes">의류</a></li>
+                  <li><a href="living">리빙</a></li>
+                  <li><a href="figure">피규어</a></li>
+                  <li><a href="accesory">악세사리</a></li>
+                  <li><a href="clothes">의류</a></li>
+                  <li><a href="etc">기타</a></li>
                 </ul>
               </li>
                 <!--<li><a href="#">Story</a></li>-->
@@ -47,41 +48,31 @@
     </header>
   <div id="bigcontainer">
       
-    <img src="resources/img/banner.jpg" id="banner" class="img-responsive" alt="banner" width="100%" height="400"> 
+    <img data-ng-src="{{bannerUrl}}" id="banner" class="img-responsive" alt="banner" width="100%" height="400"> 
       
     
 
-         <!--리빙상품-->
-      <div id="living">
-            <h1 id="h1">리빙</h1>
-         
+         <!--카테고리상품-->
+      <div id="category">
+            <h1 id="h1" data-ng-bind="title"></h1>
           
-          
-          
-          
-          <!--드랍다운-->
-            <select name="select" id="menu1" data-ng-model="selectOrder">
-			    <option value="-hit">인기순</option>
-			    <option value="gprice">낮은가격</option>
-			    <option value="-gprice">높은가격</option>
-			</select>
-          
-          
-          <!-- 탭-->
-          
-         
-            <button type="button" class="btn btn-default" id="tab1">손거울</button>
-
-            <button type="button" class="btn btn-default" id="tab1">손난로</button>
-         
-          
-          
+          	<div>
+	          	<div id="menu1" data-ng-if="typeCheck">
+	          		<button type="button" class="btn btn-default" data-ng-repeat="rows in menuData" data-ng-click="menuEvent(rows)">{{rows.name}}</button>
+	          	</div>
+	          
+	          	<!--드랍다운-->
+	            <select name="select" id="menu2" data-ng-model="selectOrder">
+				    <option value="-hit">인기순</option>
+				    <option value="gprice">낮은가격</option>
+				    <option value="-gprice">높은가격</option>
+				</select>
+			</div>
           
           <hr>
-          
           <!--상품1-->
           <div id="catedata">
-          	<div id="pop_c1" data-ng-repeat="rows in data | orderBy: selectOrder | limitTo : viewRow : start">
+          	<div id="pop_c1" data-ng-repeat="rows in data | filter : selectType | orderBy: selectOrder | limitTo : viewRow : start">
 				<div class="pop_p1">
 	        		<div id="pic">
 	        			<img data-ng-src="{{rows.gimg}}" class="cateimg">
@@ -94,12 +85,15 @@
             	</div>
             </div>
           </div>
-		  
-		  <div class="page">
+           
+                   
+          
+          
+          <div class="page">
           	<a data-ng-href="" data-ng-repeat="rows in pageArry" data-ng-click="pagingEvent($index)" data-ng-class="{pageBg : pageNum == (rows.no + 1)}">{{rows.no + 1}}</a>
           </div>
       </div>
-      <!--상품끝-->
+      <!--인기상품끝-->
       
     
   </div><!--콘텐츠끝나는 부분-->

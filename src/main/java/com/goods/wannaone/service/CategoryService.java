@@ -35,15 +35,11 @@ public class CategoryService implements CategoryServiceInterface {
 		bean = new DaoBean("SelectList", sqlID, param);
 		result.put("categorylist", di.dao(bean));
 		
-		
-		
-		sqlID = namespace + ".totCnt";
-		bean = new DaoBean("SelectOne", sqlID, null);
-		result.put("tot", di.dao(bean));
+//		sqlID = namespace + ".totCnt";
+//		bean = new DaoBean("SelectOne", sqlID, null);
+//		result.put("tot", di.dao(bean));
 //		HashMap<String, Object> totCnt = di.totCnt();
 //		map.put("totCnt", totCnt);
-		 
-		
 		
 		return result;
 	}

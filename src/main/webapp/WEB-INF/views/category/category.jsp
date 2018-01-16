@@ -10,122 +10,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="resources/category/category.css" rel="stylesheet" type="text/css" media="all">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-  
-<script type ="text/javascript">
-
-var category = angular.module("Category", []);
-category.controller("categoryCtrl", function($scope, $http) {
-	var data =[];
-	var viewRow = 9;
-	var tag = "";
-	var tag1 = "";
-	var page = 1;
-	var totCnt = 0;
-	$scope.pageArry = [];
-	
-	$scope.init = function() {
-	    var hash = location.hash; // a 태그의 이벤트로 발생한 hash 값을 가져온다.
-	    if(hash != ""){ // hash 값이 있을 경우 page 변수의 값으로 사용한다.
-	       page = hash.substr(1, hash.length);
-	    }      
-	    var end = (viewRow * page); // 9 * 1 = 9 
-	    var start = (end - viewRow); // 9 - 9 = 0
-    	
-    	$http.post("categorylist","",
-    			   { params : {
-    				   	"start":start, 
-    				    "viewRow":viewRow}
-		}).then(function(result) {
-	        $scope.data = result.data.categorylist;
-	        $scope.totCnt = result.data.tot.tot;
-	        $scope.page = $scope.totCnt / viewRow;
-	        for(var i = 0; i < $scope.page; i++){
-	        	$scope.pageArry.push(i);
-	        }
-    	});
-    }
-	
-	$scope.more = function(row){
-		console.log(row);
-	}
-    
-    $scope.init();
-});
-
-
-$(document).ready(function(){
-// 	var data =[];
-// 	var viewRow = 9;
-// 	var tag = "";
-// 	var tag1 = "";
-// 	var page = 1;
-// 	var totCnt = 0;
-		
-// 	function createHtml(data){
-// 		$("#catedata").empty();
-// 		$.each( data, function( key, value ) {
-// 			var tag="";
-// 			tag += '<div id="pop_c1">';
-// 			tag +=  '  <div class="pop_p1">';
-// 	                <!--상품이미지-->
-// 	        tag +=  '     <div id="pic">';
-// 	        tag +=  '      <img src="'+ value.gimg + '" class="cateimg">';
-// 	        tag +=  '    </div>';
-// 	                <!--상품제목-->
-// 	        tag +=  '    <div id="title"><h3>'+ value.gname + '</h3></div>';
-// 	                <!--상품가격-->
-//             tag +=  '    <div id="price"><h4>'+ value.gprice + '</h4></div>';
-//             tag +=  '  </div>';
-//             tag +=  ' <div class="pop_btn">';
-//             tag +=  '  	<button type="button" class="btn btn-default">보러가기</button>';
-//             tag +=  '  </div>';
-//             tag += '</div>';   
-// 	        $("#catedata").append(tag);
-// 		});
-// 	}
-		
-// 		function createPaging(){
-// 		      var paging = totCnt / viewRow;
-// 		      // 전체의 행의 수에서 보여줄 행을 나누면 페이지의 갯수를 알 수 있다.
-// 		      $(".page").empty(); // div 태그 속에 a 태그를 초기화 한다.
-// 		      for(var i = 0; i < paging; i++){
-// 		         $(".page").append("<a href='#" + (i + 1) + "'>" + (i + 1) + "</a>")
-// 		      }      
-// 		      $(".page a").eq(page - 1).addClass("bg"); 
-// 		      $(".page a").off().on("click", function(){ // 페이지 전환 이벤트를 작성 한다.
-// 		    	 initData();
-// 		     });
-// 		}
-		     
-// 		function initData(){ // 디비에서 데이터 가져오기 위한 함수
-// 		      var hash = location.hash; // a 태그의 이벤트로 발생한 hash 값을 가져온다.
-// 		      if(hash != ""){ // hash 값이 있을 경우 page 변수의 값으로 사용한다.
-// 		         page = hash.substr(1, hash.length);
-// 		      }      
-// 		      var end = (viewRow * page); // 9 * 1 = 9 
-// 		      var start = (end - viewRow); // 9 - 9 = 0
-// 		      var timestamp =+ new Date();
-// 		      $.ajax({
-// 		            type:"post", 
-// 		            url:"categorylist?tm=" + timestamp, // Spring에서 만든 URL 호출
-// 		            data:{"start":start, "viewRow":viewRow} // 파라메터로 사용할 변수 값 객체 넣기
-// 		      }).done(function(d){ // 비동기식 데이터 가져오기
-// 		         var result = JSON.parse(d);
-// 		         data = result.categorylist;
-// 		         totCnt = result.tot.tot;
-// 		         createHtml(data); // 화면에 표현하기 위하여 함수 호출
-// 		         createPaging(); // 페이지 링크 표현하기 우하여 함수 호출
-// 		      });
-// 		}
-
-// 		initData();
-});
-
-
-
-</script>
-  
-   
+  <script src="resources/category/category.js"></script>
+<!--   <script src="resources/category/categoryJquery.js"></script> 사용안함 에헴! -->
 </head>
  <!--body-->   
 <body id="top">
@@ -140,12 +26,12 @@ $(document).ready(function(){
             </div>
             <ul class="nav navbar-nav">
               <li class="active"><a href="/">Home</a></li>
-              <li class="dropdown" onclick="location.href='/category'"><a class="dropdown-toggle" data-toggle="dropdown" href="/category">카테고리 <span class="caret"></span></a>
+              <li class="dropdown" onclick="location.href='category'"><a class="dropdown-toggle" data-toggle="dropdown" href="category">카테고리 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="/living">리빙</a></li>
-                  <li><a href="/figure">피규어</a></li>
-                  <li><a href="/accesory">악세사리</a></li>
-                  <li><a href="/clothes">의류</a></li>
+                  <li><a href="living">리빙</a></li>
+                  <li><a href="figure">피규어</a></li>
+                  <li><a href="accesory">악세사리</a></li>
+                  <li><a href="clothes">의류</a></li>
                 </ul>
               </li>
                 <!--<li><a href="#">Story</a></li>-->
@@ -161,29 +47,31 @@ $(document).ready(function(){
     </header>
   <div id="bigcontainer">
       
-    <img src="resources/img/banner.jpg" id="banner" class="img-responsive" alt="banner" width="100%" height="400"> 
+    <img data-ng-src="{{bannerUrl}}" id="banner" class="img-responsive" alt="banner" width="100%" height="400"> 
       
     
 
          <!--카테고리상품-->
       <div id="category">
-            <h1 id="h1">카테고리</h1>
+            <h1 id="h1" data-ng-bind="title"></h1>
           
-          
-          
-          <!--드랍다운-->
-            <select name="select" id="menu1">
-			    <option value="1">인기순</option>
-			    <option value="2">낮은가격</option>
-			    <option value="3">높은가격</option>
-			  </select>
-          
-          
+          	<div>
+	          	<div id="menu1" data-ng-if="typeCheck">
+	          		<button type="button" class="btn btn-default" data-ng-repeat="rows in menuData" data-ng-click="menuEvent(rows)"></button>
+	          	</div>
+	          
+	          	<!--드랍다운-->
+	            <select name="select" id="menu2" data-ng-model="selectOrder">
+				    <option value="-hit">인기순</option>
+				    <option value="gprice">낮은가격</option>
+				    <option value="-gprice">높은가격</option>
+				</select>
+			</div>
           
           <hr>
           <!--상품1-->
           <div id="catedata">
-          	<div id="pop_c1" data-ng-repeat="rows in data">
+          	<div id="pop_c1" data-ng-repeat="rows in data | orderBy: selectOrder | limitTo : viewRow : start">
 				<div class="pop_p1">
 	        		<div id="pic">
 	        			<img data-ng-src="{{rows.gimg}}" class="cateimg">
@@ -201,7 +89,7 @@ $(document).ready(function(){
           
           
           <div class="page">
-          	<a href="#{{$index + 1}}" data-ng-repeat="rows in pageArry">{{$index + 1}}</a>
+          	<a data-ng-href="" data-ng-repeat="rows in pageArry" data-ng-click="pagingEvent($index)" data-ng-class="{pageBg : pageNum == (rows.no + 1)}">{{rows.no + 1}}</a>
           </div>
       </div>
       <!--인기상품끝-->

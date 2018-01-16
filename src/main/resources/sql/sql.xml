@@ -19,8 +19,27 @@
    
   <!--  카테고리상품리스트가져올때 -->
   <select id="categorylist" resultType="hashmap" parameterType="hashmap">
-      select * from goods ORDER BY date DESC limit #{start}, #{viewRow};
+      select * from goods
+      where 1 = 1 
+      <if test="type == 'living'">
+      	and type in (11, 12)
+      </if> 
+      <if test="type == 'figure'">
+      	and type = 21
+      </if> 
+      <if test="type == 'accesory'">
+      	and type in (31, 32, 33)
+      </if> 
+      <if test="type == 'etc'">
+      	and type = 51
+      </if>
+      <if test="type == 'clothes'">
+      	and type = 41
+      </if>
+<!--     ORDER BY date  DESC limit #{start}, #{viewRow}; -->
    </select>
+  
+  
    
   <!-- 게시글 개수 구하기 -->
   <select id="totCnt" resultType="hashmap">
