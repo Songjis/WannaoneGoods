@@ -44,6 +44,12 @@
       select * from goods
       where gno = #{dNo}
    </select>
+   <!-- 상품디테일 내용에 들어갈 이미지들  -->
+   <select id="detailimg" parameterType="hashmap" resultType="hashmap">
+      select * from img
+      where gno = #{dNo}
+      order by sort 
+   </select>
    
   <!-- 게시글 개수 구하기 -->
   <select id="totCnt" resultType="hashmap">

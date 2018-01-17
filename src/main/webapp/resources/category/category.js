@@ -80,9 +80,11 @@ category.controller("categoryCtrl", function($scope, $http) {
 	
 	/* 보러가기 선택시 처리하는 부분 */
 	$scope.more = function(row){
-		console.log(row);
-		
-	}
+		$scope.dNo=	row.gno;
+			console.log(row);
+			location.href = "detail?dNo=" + $scope.dNo;
+	}		
+	
 	
 	/* 페이징 번호 선택시 처리하는 부분 */
 	$scope.pagingEvent = function(index){

@@ -57,6 +57,10 @@ public class HomeService implements HomeServiceInterface {
 		bean = new DaoBean("SelectOne", sqlID, param);
 		result = (HashMap<String, Object>) di.dao(bean);
 		
+		sqlID = namespace + ".detailimg";
+		bean = new DaoBean("SelectList", sqlID, param);
+		result.put("detailimg", di.dao(bean));
+		
 		return result;
 	}
 	

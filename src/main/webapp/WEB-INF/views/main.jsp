@@ -47,7 +47,7 @@ $(document).ready(function(){
 		
 		
 		
-		//클릭한 게시글을 자세히 보기
+		//보러가기 클릭했을 때 
 		$(".pop_btn").off();
 		$(".pop_btn").on("click",function(){console.log("dddd");
 			console.log(data);

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,21 +88,28 @@
 
           <hr>
           
-          <div class="container">
-           <img src="resources/img/banner.jpg" id="img" class="img-thumbnail">
-           <img src="resources/img/banner.jpg" id="img" class="img-thumbnail">
-           <img src="resources/img/banner.jpg" id="img" class="img-thumbnail">
-           
-          </div>
           <div class="comment">
               <h4>${detail.comment}</h4>
            </div>
           
+          <div class="container">
+           
+	          <c:forEach var="i" items="${detail.detailimg}" >
+	               <img src="${i.picpath}" id="img" class="img-thumbnail">
+	          </c:forEach>
+
+           
+          </div>
+          <div class="comment">
+              <h4>${detail.comment1}</h4>
+           </div>
+          
           <div id="delivery">
+          
               <pre style="white-space: pre-wrap;"> ※ 주의사항
 배송
 · 배송사: CJ대한통운
-· 배송비: 국내 2,500원 (3만 원 이상 구매 시 무료배송)
+· 배송비: 국내 2,500원
 · 배송기간: 오후 3시 이전 주문 당일 출고 (영업일 기준)
   단, 상품의 재고 상황, 배송량, 배송 지역에 따라 배송기일이 추가로 소요될 수 있는 점 양해 부탁드립니다.
 
@@ -115,12 +123,12 @@
   - 시간 경과에 의하여 재판매가 곤란할 정도로 상품의 가치가 현저히 감소한 경우
   - 고객의 주문에 따라 개별 생산되는 상품의 경우
 · 고객님의 단순변심에 의한 교환/반품일 경우에는 교환/반품 배송비를 고객님께서 직접 부담하셔야 합니다.
-
+ 
 환불
 · 주문취소 및 반품 시 환불은 주문 시 이용하신 결제수단으로 2~7 영업일 이내 환불됩니다. 
 
 기타 문의
-· 기타 교환 및 반품에 대한 문의는 1:1 문의하기 또는 1577-6263으로 문의해주세요.
+· 기타 교환 및 반품에 대한 문의는 카카오톡  문의 또는 010-1004-1004로 문의해주세요.
               
            
               </pre>
