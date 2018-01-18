@@ -3,6 +3,7 @@
 <html>
 <head>
 <title>Wannaone Goods</title>
+<link rel="shortcut icon" type="image/icon" href="resources/img/icon2.png">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

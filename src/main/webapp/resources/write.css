@@ -1,0 +1,356 @@
+@CHARSET "UTF-8";
+/*body id*/
+#top{
+   width: 100%;
+   /*background-color: azure; */  
+}
+/*중간 큰틀*/
+#bigcontainer{
+    background: linear-gradient(180deg, rgba(255,0,0,0.2),rgba(255,0,0,0.01)); 
+    width: 70%;
+/*     height: 3250px; */
+    margin: 0 15%;
+}
+/*=========== 상단메뉴바======*/
+#header{
+    background-color:white; 
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+.navbar{
+    width: 70%;
+    margin:  0 15%;
+    
+}
+.container-fluid{
+    padding: 1%;
+    color: black;
+}
+/*폰트컬러블랙*/
+a{
+    color: black;
+    font-size: 17px;
+}
+
+@media (max-width : 768px){
+    /*상단바 고정*/
+    .navbar-fixed-top {
+        position: relative;
+    }
+    
+    
+}
+
+
+@media (max-width : 982px){
+    
+    h5{
+       display: none; 
+    }
+}
+
+
+/*============ 상품등록 form 틀 ============*/
+.img {
+	clear:both;
+	width:100%;
+}
+.img img{
+	width: 100%;
+	
+}
+
+.write{
+	
+	width:100%;
+/* 	height:2000px; */
+    margin-top:6%;	
+}
+
+h1{
+	text-align:center;
+	padding: 2% 3%;
+	font-size:5rem;
+	font-weight: bold;
+	margin: 0;
+	text-shadow: 3px 5px 10px grey;
+}
+
+h2{
+	text-align:center;
+    padding-left: 1%;
+	font-weight: bold;
+	margin:0;
+}
+
+
+label , #gimg{
+	
+	font-size:2rem;
+	padding: 1%;
+	float:left;
+}
+
+ .upload1{
+/*     background-color:green; */
+    width:100%;
+    clear:both;
+    height:70px; 
+    margin: 2% 0;
+ }
+ 
+.form1{
+/* 	background-color: silver; */
+	width:100%;
+/* 	height:200px; */
+}
+
+.form2{
+	width:100%;
+	height:500px;
+/* 	background-color: grey; */
+	
+}
+
+#content, #content1{
+	width: calc(96%/2);
+	height:100%;
+	float:left;
+	margin: 0 1%;
+	font-size: 2rem;
+}
+.gname, .gprice, .stock, .date{
+/* 	background-color:azure; */
+	border:1px solid black;
+	width:calc(100%/4);
+	float:left;
+	height:70px;
+	padding: 1%;
+}
+span{
+	font-size: 2rem;
+}
+#gname, #gprice, #stock, #date{
+	width: 65%;
+	height:100%;
+	font-size: 2rem;
+}
+
+.type{
+	width:100%;
+	height:100px;
+/* 	background-color: azure; */
+	clear:both;
+	padding: 2%;
+	
+}
+h4{
+	width:90%;
+	float:right;
+	font-size: 2rem;
+	color:navy;
+}
+#type{
+	width:10%;
+	height:100%;
+	font-size:2rem;
+	
+}
+
+.upload2{
+	clear:both;
+	background: linear-gradient(90deg,rgba(192,192,192,0.8),rgba(192,192,192,0.1));
+	width:100%;
+	height:300px;
+	margin:3% 0;
+	padding:3%;
+	
+}
+/* .gprice{
+	background-color:azure;
+	width:calc(100%/4);
+	float:left;
+	height:50px;
+	padding: 1%;
+} */
+.filelabel{
+	width:15%;
+	height:100%;
+	float:left;
+}
+.mfile{
+	width:30%;
+	height:100%;
+	float:left;
+}
+
+
+.Button{
+	clear:both;
+	width:100%;
+	height:70px;
+	margin: 2% 0 ;
+/* 	background-color: azure; */
+}
+/*버튼속성*/
+.btn1 , .btn2{
+    font-size: 2rem;
+    height: 100%;
+    float:right;
+    margin: 0 1%;
+    width: calc(100%/7);
+}
+
+
+
+
+
+/*=================푸터==================*/
+/*푸터큰틀*/
+footer{
+    position:relative;
+    width: 100%;
+    height: 200px;
+    background-color: lightblue;
+    float: left;
+}
+/*푸터윗부분*/
+#footer_up{
+    margin:0 15%;
+    width: 70%;
+    height: 40%;
+    background-color: aquamarine;
+}
+/*푸터아랫부분*/
+#footer_down{
+    margin: 0 15%;
+    width: 70%;
+    height: 60%;
+    background-color: azure;
+}
+h6{
+    margin: 1% 0;
+    margin-top: 0;
+    font-style: italic;
+    text-align: center;
+    font-size: 3rem; 
+}
+h7{
+    font-size: 2rem;
+    text-align: center;
+    padding: 0 5%;
+}
+/*alert창*/
+.alert-info{
+     
+     font-size: 2rem;
+     height: 100%;
+     margin: 0;
+}
+
+
+/*media*/
+@media (max-width: 1440px){
+    
+    #bigcontainer{
+        height: 3000px;
+    }
+}
+
+@media (max-width: 1024px){
+    
+    #bigcontainer{
+        height: 2600px;
+    }
+    
+}
+
+
+@media (max-width: 768px){
+#bigcontainer{
+        height: 2400px;
+    }
+    h7{
+        font-size: 1.5rem;
+        display: block;
+    }
+    
+}
+
+@media (max-width: 494px){
+    #bigcontainer{
+        width: 100%;
+        margin: 0;
+        height: 2400px;
+    }
+    
+    h6{
+        font-size: 1.5rem;
+    }
+    h7 {
+        font-size: 1.5rem;
+        display: block;
+    }
+    p{
+        font-size: 0.9rem;
+    }
+    
+}
+
+@media (max-width: 375px){
+   
+    #bigcontainer{
+        height: 2450px;
+    }
+    #top{
+        height: 2450px;
+    }
+    #footer_up p{
+        font-size: 0.5rem;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

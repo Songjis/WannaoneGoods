@@ -58,7 +58,7 @@
   
   <!-- 상품등록할때 -->
   <insert id="InsertNews" parameterType="hashmap">
-      insert into goods(gimg, gname, gprice, gpick, content, type) values(#{gimg}, #{gname}, #{gprice},#{gpick},#{content}, #{type});
+      insert into goods(gimg, gname, gprice, comment, comment1, type) values(#{gimg}, #{gname}, #{gprice},#{comment},#{comment1}, #{type});
    </insert>
   
   

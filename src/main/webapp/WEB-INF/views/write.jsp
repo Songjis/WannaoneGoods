@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Wannaone Goods</title>
@@ -10,7 +12,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link href="resources/main.css" rel="stylesheet" type="text/css" media="all">
+<link href="resources/write.css" rel="stylesheet" type="text/css" media="all">
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -117,106 +119,99 @@ $(document).ready(function(){
       </nav>   
     </header>
   <div id="bigcontainer">
-    
-      
-      <!--이미지슬라이드-->
-      <div id="imgslide">
-      
-          <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
-              <li data-target="#myCarousel" data-slide-to="2"></li>
-              <li data-target="#myCarousel" data-slide-to="3"></li>
-            </ol>
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-
-              <div class="item active">
-                <img src="resources/img/img_chania.jpg" alt="Chania" width="460" height="345">
-                <div class="carousel-caption">
-                  <h3>img1</h3>
-                  <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
-                </div>
-              </div>
-
-              <div class="item">
-                <img src="resources/img/img_chania2.jpg" alt="Chania" width="460" height="345">
-                <div class="carousel-caption">
-                  <h3>img2</h3>
-                  <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
-                </div>
-              </div>
-
-              <div class="item">
-                <img src="resources/img/img_flower.jpg" alt="Flower" width="460" height="345">
-                <div class="carousel-caption">
-                  <h3>img3</h3>
-                  <p>Beautiful flowers in Kolymbari, Crete.</p>
-                </div>
-              </div>
-
-              <div class="item">
-                <img src="resources/img/img_flower2.jpg" alt="Flower" width="460" height="345">
-                <div class="carousel-caption">
-                  <h3>img4</h3>
-                  <p>Beautiful flowers in Kolymbari, Crete.</p>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-      
-      </div>
-<!--이미지슬라이드끝-->
-      <div id="alert">   
-         <div class="alert_l"><img src="resources/img/alert.png" style="width: 100%; height: 100%">   
+    <div class="img">
+         <img src="resources/img/write2.jpg">
+    </div>
+     
+     
+     <div class="write">
+        <h1>상품 등록 페이지</h1>
+        <h2>관리자만 들어올 수 있는 페이지입니다. </h2>
+        <form action="inwriting" method="post" enctype="multipart/form-data">
+        
+         <div class="upload1">
+            <label for="fileName">메인 이미지  파일 :</label>
+         	<input type="file" name="gimg" id="gimg" value="메인사진">
          </div>
-          <div class="alert_r"><h4>[공지]~~~~~~~~~~~~~~</h4></div>
-      </div>
-         <!--인기상품-->
-      <div class="pop">
-      		<h1>인기상품</h1>
-      		
-          
-            
-              
-              
-      </div>
-      <!--인기상품끝-->
-      <!--한정판-->
-      <div class="limited">
-          <!--글틀-->
-          <div class="limit_f">
-              <h2>Limited Edition</h2>
-              <h3>품 절 임 박 !</h3>
-              <h5>===============설명==============</h5>
-              <button type="button" class="btn_limited btn-link">워너원 한정판 손난로 보러가기>></button>
-          </div>
-          <!--사진-->
-          <img src="resources/img/limited.PNG" class="limit_p">
-
-      </div>
+         
+         <div class="form1">
+           <div class="gname">
+            <span>제품이름 : </span>
+            <input type="text" placeholder="입력하세요." name="gname" id="gname">
+           </div>
+           <div class="gprice">
+            <span>제품가격 : </span>
+            <input type="number" placeholder="입력하세요." name="gprice" id="gprice">
+           </div>
+           <div class="stock">
+            <span>제품재고 : </span>
+            <input type="number" placeholder="입력하세요." name="stock" id="stock">
+           </div>
+           <div class="date">
+            <span>날짜: </span>
+            <input type="date" placeholder="선택하세요" name="date" id="date"> 
+           </div> 
+           <div class="type">
+            <h4>*상품 타입(type)=> 11 : 손거울 / 12 : 손난로 / 21 : 피규어 / 31: 팔찌  / 32 : 키링 / 33 : 에코백 / 41 : 의류 / 51 : 기타 </h4> 
+            <select name="select" id="type">
+				    <option value="11">11</option>
+				    <option value="12">12</option>
+				    <option value="21">21</option>
+				    <option value="31">31</option>
+				    <option value="32">32</option>
+				    <option value="33">33</option>
+				    <option value="41">41</option>
+				    <option value="51">51</option>
+				</select>
+		  </div>
+         </div>
+                
+         <div class="form2">
+             <textarea name="content" id="content" placeholder="앞내용을 입력하세요."></textarea>
+             <textarea name="content1" id="content1" placeholder="뒷내용을 입력하세요."></textarea>
+         </div>
+         
+         <div class="upload2">
+                <div class="filelabel">
+                	<label for="fileName">이미지 내용 파일 :</label>
+                </div>
+                <div class="mfile">
+	                <input type="file" name="file1" id="file1" value="파일">
+	                <input type="file" name="file2" id="file2" value="파일">
+	                <input type="file" name="file3" id="file3" value="파일">
+	                <input type="file" name="file4" id="file4" value="파일">
+	                <input type="file" name="file5" id="file5" value="파일">
+	                <input type="file" name="file6" id="file6" value="파일">
+	                <input type="file" name="file7" id="file7" value="파일">
+	                <input type="file" name="file8" id="file8" value="파일">
+	                <input type="file" name="file9" id="file9" value="파일">
+	                <input type="file" name="file10" id="file10" value="파일">
+                </div>
+                <div class="mfile">
+                    <input type="file" name="file11" id="file11" value="파일">
+                    <input type="file" name="file12" id="file12" value="파일">
+                    <input type="file" name="file13" id="file13" value="파일"> 
+                    <input type="file" name="file13" id="file13" value="파일"> 
+                    <input type="file" name="file13" id="file13" value="파일"> 
+                </div>
+<!--          <input type="file" name="picture" id="file" value="사진"> -->
+         </div>
+         
+         <div class="Button">
+	         <button type="button" class="btn1 btn-info" onclick="location.href='category'">취소</button>
+	         <button type="submit" class="btn2 btn-info">저장</button>
+	         <!-- <button type="button" class="btn1">수정</button> -->
+         </div>
+         
+      </form>
       
-      <!--신상품-->
-      <div id="new">
-            <h1>신상품</h1>
+    </div>
+     
+      
           
             
-          
-      </div>
+              
+    
     
   </div><!--콘텐츠끝나는 부분-->
     

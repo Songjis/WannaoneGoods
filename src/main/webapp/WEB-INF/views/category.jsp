@@ -3,6 +3,7 @@
 <html data-ng-app="Category" data-ng-controller="categoryCtrl">
 <head>
 <title>Wannaone Goods</title>
+<link rel="shortcut icon" type="image/icon" href="resources/img/icon1.png">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -60,7 +61,11 @@
 	          	<div id="menu1" data-ng-if="typeCheck">
 	          		<button type="button" class="btn btn-default" data-ng-repeat="rows in menuData" data-ng-click="menuEvent(rows)">{{rows.name}}</button>
 	          	</div>
-	          
+	            
+	            <div id="write_btn" >
+	          		<button type="button" class="btn btn-default" data-ng-click="writeEvent()">상품등록</button>
+	          	</div>
+	          	
 	          	<!--드랍다운-->
 	            <select name="select" id="menu2" data-ng-model="selectOrder">
 				    <option value="-hit">인기순</option>

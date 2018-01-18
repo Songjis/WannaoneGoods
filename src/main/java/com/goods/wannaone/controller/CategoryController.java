@@ -65,4 +65,10 @@ public class CategoryController {
 		return HttpUtil.returnJson(csi.categorylist(HttpUtil.paramMap(req)));
 	}
 	
+	@RequestMapping(value = "/write", method = RequestMethod.GET)
+	public String write() {
+		logger.info("write");
+		return "write";
+	}
+	
 }

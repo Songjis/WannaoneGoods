@@ -6,6 +6,7 @@ category.controller("categoryCtrl", function($scope, $http) {
 	$scope.selectOrder = "-hit";
 	$scope.menuData = [];    /* 콤보박스 리스트 데이터 변수 선언 */
 	$scope.typeCheck = true; /* 콤보박스 보여줄지 설정 하는 변수 */
+	
 	$scope.type = location.pathname.substring(1, location.pathname.length); /* 카테고리 타입명 변수 담기 */
 	
 	/* 카테고리별 변경 내용 설정 부분 */
@@ -48,6 +49,10 @@ category.controller("categoryCtrl", function($scope, $http) {
 	/* 콤보박스 선택 값 설정 부분 */
 	$scope.menuEvent = function(row){
 		$scope.selectType = {type: row.type};
+	}
+	
+	$scope.writeEvent = function(){
+		location.href = "write";
 	}
 	
 	/* categorylist URL 실행 되는 부분 */

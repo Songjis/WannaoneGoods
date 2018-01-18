@@ -74,6 +74,7 @@ a{
 	margin: 0 10px;
 }
 
+
 /*드랍다운*/
 #menu2{
     float: right;
@@ -84,6 +85,14 @@ a{
     font-size:1.5rem;
 }
 
+/* 상품등록버튼 */
+#write_btn{
+	float:right;
+	width:14.5%;
+	height:40px;
+	font-weight:bold;
+/* 	display:none; */
+}
 
 /*수평선*/
 hr{
