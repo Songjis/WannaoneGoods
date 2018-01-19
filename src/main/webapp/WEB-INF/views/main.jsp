@@ -68,6 +68,13 @@ $(document).ready(function(){
 			}
 		});
 		
+		
+		$(".btn_limited").off();
+		$(".btn_limited").on("click",function(){
+			location.href="figure";
+			
+		})
+		
 	});
 	
 	
@@ -202,11 +209,11 @@ $(document).ready(function(){
           <div class="limit_f">
               <h2>Limited Edition</h2>
               <h3>품 절 임 박 !</h3>
-              <h5>===============설명==============</h5>
-              <button type="button" class="btn_limited btn-link">워너원 한정판 손난로 보러가기>></button>
+              <h5>2월달까지만 판매되는 상품입니다.</h5>
+              <button type="button" class="btn_limited btn-link">워너원 한정판 피규어 보러가기>></button>
           </div>
           <!--사진-->
-          <img src="resources/img/limited.PNG" class="limit_p">
+          <img src="resources/img/f1.jpg" class="limit_p">
 
       </div>
       

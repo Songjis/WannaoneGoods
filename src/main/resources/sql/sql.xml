@@ -58,7 +58,16 @@
   
   <!-- 상품등록할때 -->
   <insert id="InsertNews" parameterType="hashmap">
-      insert into goods(gimg, gname, gprice, comment, comment1, type) values(#{gimg}, #{gname}, #{gprice},#{comment},#{comment1}, #{type});
+      insert into goods(gimg, gname, gprice, stock, comment, comment1, type, date) values(#{gimg}, #{gname}, #{gprice}, #{stock}, #{comment},#{comment1}, #{type}, #{date});
+   </insert>
+   
+   <select id="getGno" resultType="hashmap">
+   	  select max(gno) as gno from goods
+   </select>
+   
+   <!-- 상품 내용에 들어갈 이미지 등록할때 -->
+   <insert id="InsertImgs" parameterType="hashmap">
+      insert into img (gno, picpath, sort) values(#{gno}, #{picpath}, #{sort});
    </insert>
   
   

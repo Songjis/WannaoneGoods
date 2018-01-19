@@ -16,62 +16,33 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-	var data = [];
-	var data1 = [];
-	$.get("mainlist").done(function(d){
-		var result = JSON.parse(d);
-		console.log(result);
-		data = result.poplist;
-		data1 = result.newlist;
-		//for문 간단 사용법 ->  http://api.jquery.com/jquery.each/
-		$.each( result.poplist, function( key, value ) {
-// 			console.log("poplist", key, value );
-			var tag="";
-			tag += '<div class="pop_c2">';
-			tag += '  <div class="pop_p2"> <img src="' + value.gimg + '" class="popimg"></div>';
-			tag += '  <div class="pop_btn">';
-			tag += '    <button type="button" class="btn btn-default">보러가기</button>';
-			tag += '  </div>';
-			tag += '</div>';
-	        $(".pop").append(tag);
-		});
-		
-		$.each( result.newlist, function( key, value ) {
-// 			console.log("newlist", key, value );
-			var tag = "";
-			tag += '<div id="new_c1">';
-			tag += '  <div class="new_p1"><img src="' + value.gimg + '" class="img-thumbnail" alt="Cinque Terre" style="width: 100%; height: 100%">';
-			tag += '  </div>';
-			tag += '  <div class="pop_btn">';
-			tag += '    <button type="button" class="btn btn-default">보러가기</button>';
-			tag += '  </div>';
-			tag += '</div>';
-            $("#new").append(tag);
-		});
-		
-		
-		
-		//보러가기 클릭했을 때 
-		$(".pop_btn").off();
-		$(".pop_btn").on("click",function(){console.log("dddd");
-			console.log(data);
-
-			var index = $(".pop_btn").index(this);
-			console.log("index : ", index);
-			
-			if(index <6){
-				var dNo = data[index].gno;
-				location.href = "detail?dNo=" + dNo;
-				console.log(dNo);
-			}else{
-				var dNo = data1[index-6].gno;
-				location.href = "detail?dNo=" + dNo;
-				console.log(dNo);
-			}
-		});
-		
-	});
 	
+	$("form").on("submit", function(event){
+	  	event.preventDefault();
+	  	 var form = document.forms[0];
+  	      var formData = new FormData(form);
+  		  
+         $.ajax({
+             type:"post",
+             url:"inwriting",
+             enctype: 'multipart/form-data',
+             processData: false,
+             contentType: false,
+             cache: false,
+             data: formData
+          }).done(function(result){
+        	  var data = JSON.parse(result);
+        	  if(data.status == 1){
+        		  alert("상품 등록이 되었습니다.");
+             	  location.href = "category";
+        	  } else {
+        		  alert("상품 등록이 실패하였습니다.");
+        		  location.href = "write";
+        	  }
+          });
+         
+  		});
+
 	
 	
 	
@@ -131,10 +102,10 @@ $(document).ready(function(){
         
          <div class="upload1">
             <label for="fileName">메인 이미지  파일 :</label>
-         	<input type="file" name="gimg" id="gimg" value="메인사진">
+         	<input type="file" name="mimg" id="gimg" value="메인사진">
          </div>
          
-         <div class="form1">
+         <div class="form1"> 
            <div class="gname">
             <span>제품이름 : </span>
             <input type="text" placeholder="입력하세요." name="gname" id="gname">
@@ -153,7 +124,7 @@ $(document).ready(function(){
            </div> 
            <div class="type">
             <h4>*상품 타입(type)=> 11 : 손거울 / 12 : 손난로 / 21 : 피규어 / 31: 팔찌  / 32 : 키링 / 33 : 에코백 / 41 : 의류 / 51 : 기타 </h4> 
-            <select name="select" id="type">
+            <select name="type" id="type">
 				    <option value="11">11</option>
 				    <option value="12">12</option>
 				    <option value="21">21</option>
@@ -167,6 +138,7 @@ $(document).ready(function(){
          </div>
                 
          <div class="form2">
+             <h3>※줄바꿈을 하고 싶으면 br 태그를 넣어주세요.</h3>
              <textarea name="content" id="content" placeholder="앞내용을 입력하세요."></textarea>
              <textarea name="content1" id="content1" placeholder="뒷내용을 입력하세요."></textarea>
          </div>
@@ -176,24 +148,10 @@ $(document).ready(function(){
                 	<label for="fileName">이미지 내용 파일 :</label>
                 </div>
                 <div class="mfile">
-	                <input type="file" name="file1" id="file1" value="파일">
-	                <input type="file" name="file2" id="file2" value="파일">
-	                <input type="file" name="file3" id="file3" value="파일">
-	                <input type="file" name="file4" id="file4" value="파일">
-	                <input type="file" name="file5" id="file5" value="파일">
-	                <input type="file" name="file6" id="file6" value="파일">
-	                <input type="file" name="file7" id="file7" value="파일">
-	                <input type="file" name="file8" id="file8" value="파일">
-	                <input type="file" name="file9" id="file9" value="파일">
-	                <input type="file" name="file10" id="file10" value="파일">
+	                <input type="file" name="simg" id="file1" value="파일" multiple ="multiple">
+	                
                 </div>
-                <div class="mfile">
-                    <input type="file" name="file11" id="file11" value="파일">
-                    <input type="file" name="file12" id="file12" value="파일">
-                    <input type="file" name="file13" id="file13" value="파일"> 
-                    <input type="file" name="file13" id="file13" value="파일"> 
-                    <input type="file" name="file13" id="file13" value="파일"> 
-                </div>
+                
 <!--          <input type="file" name="picture" id="file" value="사진"> -->
          </div>
          

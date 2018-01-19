@@ -84,7 +84,9 @@ h2{
 	font-weight: bold;
 	margin:0;
 }
-
+span{
+	font-weight:bold;
+}
 
 label , #gimg{
 	
@@ -99,6 +101,8 @@ label , #gimg{
     clear:both;
     height:70px; 
     margin: 2% 0;
+    border:2px dashed teal;
+    background-color:white;
  }
  
 .form1{
@@ -196,7 +200,9 @@ h4{
 }
 /*버튼속성*/
 .btn1 , .btn2{
-    font-size: 2rem;
+    font-size: 3rem;
+    font-style:normal;
+    font-weight:900;
     height: 100%;
     float:right;
     margin: 0 1%;
