@@ -77,7 +77,25 @@ $(document).ready(function(){
 		
 	});
 	
+	var user = {};
 	
+	$.ajax({
+	   	url : "checkLogin"        	
+	    }).done(function(d){
+	   	user = JSON.parse(d);
+	   	console.log(user);
+	   	if(user.state == 0){
+	    		$("#login").show();
+	    		$(".writebtn").hide();
+	    	}else{
+	    		
+	    		$("#btnId").hide();    
+	    		$("#btnIdbox p").text(user.id+"님 반갑습니다.").css({"color":"white", "position": "absolute", "left": "75%", "margin":"0"});
+	    		var tag ="<button type='button' id='logoutbtn' style='color : red;position : absolute; left : 85%; margin : 0;'>로그아웃</button>"
+	    		$("#btnIdbox .logout").html(tag);
+	    		//pagereload();
+	    	}
+	    });
 	
 	
 });
@@ -117,7 +135,9 @@ $(document).ready(function(){
                 <!--<li><a href="#">고객센터</a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+              <li id="login"><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+              <li id="logout"></li>
+               <!-- <span class="glyphicon glyphicon-log-out"></span> Logout -->
               <!--<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>-->
             </ul>
           </div>

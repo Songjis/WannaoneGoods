@@ -49,11 +49,11 @@ a{
 }
 
 
-/*==============마이페이지============*/
+/*==============회원가입============*/
 /*큰틀*/
 #join{
     width: 100%;
-    height: 800px;
+    height: 900px;
     background-color:ghostwhite;
     float: left;
     
@@ -80,22 +80,20 @@ hr{
 #profile{
     float: left;
     width: 70%;
-    height: 70%;
+    height: 90%;
     font-size: 2rem;
-    background-color: aqua;
+/*     background-color: aqua; */
     margin: 0 15%;
 }
 
 .form-group{
 	width:100%;
 }
-#l{
-	width:30%;
-}
-#r{
-	width:70%;
-}
 
+#sample6_address, #sample6_address2{
+	width:49.5%;
+	margin-top:1%;
+}
 
 #btn1 , #btn2{
     float: left;
@@ -113,7 +111,14 @@ hr{
 h3{
     float: left;
 }
+label{
+	font-size: 3rem;
+}
 
+.form-control{
+	height:50px;
+	font-size: 2rem;
+}
 
 /*=================푸터==================*/
 /*푸터큰틀*/

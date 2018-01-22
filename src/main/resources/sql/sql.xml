@@ -7,6 +7,21 @@
       select '테스트' as data
    </select>
    
+   <!-- 아이디 비밀번호 비교(로그인시 사용) -->
+   <select id="selectLogin" parameterType="hashmap" resultType="hashmap" >
+      select * from members where email=#{email} and pw=#{pw}
+   </select>
+   
+   <!--아이디 중복 검사 (회원가입에 id중복체크시 사용) -->
+   <select id="overlapId" resultType="hashmap">
+      select email from members where email=#{email}
+   </select>
+   
+   <!--회원가입 (회원가입시 사용) -->
+   <insert id="insertJoin" parameterType="hashmap">
+      insert into members(email, pw, name, phone, addr1, addr2, addr3) values (#{email}, #{pw}, #{name}, #{phone}, #{addr1}, #{addr2}, #{addr3})
+   </insert>
+   
   <!-- 인기상품 6개 가져올때 -->
   <select id="poplist" resultType="hashmap">
       select * from goods order by hit desc limit 6;
@@ -18,7 +33,7 @@
    </select>
    
   <!--  카테고리상품리스트가져올때 -->
-  <select id="categorylist" resultType="hashmap" parameterType="hashmap">
+  <select id="categorylist" parameterType="hashmap" resultType="hashmap" >
       select * from goods
       where 1 = 1 
       <if test="type == 'living'">
@@ -70,15 +85,17 @@
       insert into img (gno, picpath, sort) values(#{gno}, #{picpath}, #{sort});
    </insert>
   
-  
   <!-- 상품자세히볼때 -->
   <select id ="selectDetail" resultType ="hashmap">
  	select * from goods where  gno= #{gno};
 	</select>
   
   <!-- 상품수정할때 -->
-  <update id="updateNews" parameterType="hashmap">
+   <update id="updateNews" parameterType="hashmap">
       update goods set title=#{title}, contents=#{content}, days=#{days}, picName=#{picName}, picPath=#{picPath}, fileName=#{name}, filePath=#{path}  where no = #{no};
    </update>
+   
+   
+   
   
 </mapper>

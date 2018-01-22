@@ -13,8 +13,6 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
 
-
-
    //주소입력
     function sample6_execDaumPostcode() {
         new daum.Postcode({
@@ -60,9 +58,94 @@
     
     
 </script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var emailText = "";
+	var finEmail = "";
+	var email;
+	var pw;
+	var name;
+	var phone;
+	var addr1;
+	var addr2;
+	var addr3;
+	
+	$("#email").attr("pattern", "[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*");
+	var regex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+	
+	$("#btn1").off().on("click", function(){
+		email = $("#email").val();
+		pw = $("#pwd").val();
+		name=$("#name").val();
+		phone=$("#phone").val();
+		addr1=$("#sample6_postcode").val();
+		addr2=$("#sample6_address").val();
+		addr3=$("#sample6_address2").val();
+		finEmail = $("#email").val();
+		var checkid = $("#checkid").text();
+		console.log(addr1);
+		
+
+         if(email == "" || pw == "" || name == "" || phone == "" || addr1 == "" ||  addr2 == "" || addr3 == ""){               
+            alert("모든 정보를 입력하세요.");
+            return false;
+         }else if(checkid=="중복확인"){
+            alert("중복확인을 해주세요.");
+         }else if(regex.test(email) == false){
+        	 alert("잘못된 이메일 형식입니다.ex)1234@naver.com");
+	         return false;
+         }else if(finEmail != emailText){
+            alert("email를 다시 확인하세요.");
+            $("#email").val(emailText);
+         }else if(pw.length > 15){
+            alert("비밀번호를 15자 이하로 입력해주세요.");
+         }else{
+        	 $.ajax({
+ 				type:"POST",
+ 				url:"UserJoin",
+ 				data:{"email":email, "pw":pw, "name":name, "phone":phone, "addr1":addr1, "addr2":addr2, "addr3":addr3}
+ 			}).done(function(result){
+ 					alert("회원가입이 완료되었습니다.");
+ 					location.href="login";
+ 				console.log("성공");
+ 			});
+         }
+	});
+	
+	$("#checkid").off().on("click", function(){
+		email =$("#email").val(); 
+		emailText = $("#email").val();
+		
+		if(email == ""){
+			alert("이메일을 입력해주세요.");
+		}else if(email.length > 30){
+			alert("이메일을 다시 입력해주세요.")
+		}else{
+			$.ajax({
+				type:"post",
+                url:"CheckId",
+                data:{"email":email},
+               datatype: "json"
+			}).done(function(result){
+				
+				if(result.checkid == null){
+					$("#checkid").text("완료");
+					alert("사용가능한 이메일입니다.");
+				}else{
+					$("#checkid").text("중복확인");
+					 $("#email").val("");
+                     alert("사용중인 이메일입니다.");
+				}
+				 console.log(result);
+			});
+		}
+	});
+});	
 
 
-   
+</script>
+
+
 </head>
  <!--body-->   
 <body id="top">
@@ -111,34 +194,34 @@
           <div id="profile">
            <form>
                 <div class="form-group">
-                <div id="l">
-                  <label for="email">Email:</label>
-                </div>
-                <div id="r">
-                  <input type="email" class="form-control" id="email" placeholder="Enter email">
-                </div>
+               
+                  <label for="email">Email</label>
+                       <button id= "checkid" type="button">중복확인</button>
+                  <input type="email" class="form-control" id="email" placeholder="Enter email" maxLength="30">
+                  
                 </div>
                <div class="form-group">
-                  <label for="name">Name:</label>
-                  <input type="text" class="form-control" id="name" placeholder="Enter name">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Enter name" maxLength="10">
                 </div>
                 <div class="form-group">
-                  <label for="pwd">Password:</label>
-                  <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                  <label for="pwd">Password</label>
+                  <input type="password" class="form-control" id="pwd" placeholder="Enter password" maxLength="15">
                 </div>
                 <div class="form-group">
-	                <label for="address">Address:</label>
+	                <label for="address">Address</label><br>
 					<input type="text" id="sample6_postcode" placeholder="우편번호">
 					<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 					<input type="text" id="sample6_address" placeholder="주소">
 					<input type="text" id="sample6_address2" placeholder="상세주소">               
                  </div>
                <div class="form-group">
-                  <label for="phone">phone:</label>
-                  <input type="number" class="form-control" id="phone" placeholder="Enter phone">
+                  <label for="phone">Phone</label>
+                  <input type="text" class="form-control" id="phone" placeholder="Enter phone" maxLength="20">
                 </div>
-                <button type="submit" class="btn btn-default" id="btn1">수정</button>
-               <button type="submit" class="btn btn-default" id="btn2">탈퇴</button>
+                <br>
+              <button type="submit" class="btn btn-default" id="btn1">확인</button>
+               <a href="/login"><button type="button" class="btn btn-default" id="btn2">취소</button></a>
          </form>
          </div>
           
