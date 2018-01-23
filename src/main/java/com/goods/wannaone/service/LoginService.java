@@ -25,15 +25,13 @@ public class LoginService implements LoginServiceInterface {
 		sqlID = namespace + ".selectLogin";
 		bean = new DaoBean("SelectOne", sqlID, param);
 		result.put("selectLogin", di.dao(bean));
-		System.out.println(result);
+		System.out.println("SERVICE : " + result);
 		
-		if(result == null){
-			result = new HashMap<String, Object>();
+		if(result.get("selectLogin") == null){
 			result.put("stat", 0);//0일때 null
 	      }else {
 	    	  result.put("stat", 1);//1일때 데이터가 보여지게 된다.
 	      }
-		
 		return result;
 	}
 

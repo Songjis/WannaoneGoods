@@ -1,9 +1,11 @@
 package com.goods.wannaone.util;
 
+import java.io.IOException;
 import java.util.Enumeration;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,6 +25,21 @@ public class HttpUtil {
 		
 		return mav;
 	}
+	
+	
+	public static void sendResponceToJson(HttpServletResponse response, final HashMap<String, Object> map) {
+		response.setContentType("application/json; charset=utf-8");
+		JSONObject jsonObject = new JSONObject();
+		jsonObject = JSONObject.fromObject(JSONSerializer.toJSON(map));
+		try {
+			response.getWriter().write(jsonObject.toString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 	
 	public static HashMap<String, Object> paramMap(HttpServletRequest req){
 		HashMap<String, Object> params = new HashMap<String, Object>();

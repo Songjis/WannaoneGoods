@@ -52,13 +52,15 @@ public class LoginController {
 		public ModelAndView checkLogin(HttpSession session, HttpServletResponse resp){
 			HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
 			HashMap<String, Object> data = new HashMap<String, Object> ();
+			HashMap<String, Object> data2 = new HashMap<String, Object> ();
 			if(user == null){
 				data.put("state", 0);
+				System.out.println("실패 : "+data);
 			}else{
-				data.put("email", user.get("email"));
-				data.put("name", user.get("name"));
-				/*data.put("auth", user.get("auth"));*/
-				data.put("state", 1);
+				data = (user.get("selectLogin"));
+				data2.put("name", data.get("name"));
+				data2.put("state", 1);
+				System.out.println("성공 : "+ data2);
 			}
 			return HttpUtil.returnJson(data);
 		}
@@ -66,10 +68,10 @@ public class LoginController {
 	 
 	 
 	 @RequestMapping("/logout")
-	 public String logout(HttpSession session, HttpServletResponse resp){
+	 public void logout(HttpSession session, HttpServletResponse resp){
 		System.out.println("로그아웃!");
 		session.invalidate();
-		return "/";
+		HttpUtil.sendResponceToJson(resp, new HashMap<String,Object>());
 	}
 	
 		

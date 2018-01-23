@@ -84,9 +84,10 @@
     				var data = JSON.parse(result);
     				console.log("결과: " +data.stat);
     				if(data.stat == 1){
+    					alert("성공");
     					location.href = "/";
     				}else{
-    					alert("입력하신 정보는 잘못되었습니다.")
+    					alert("입력하신 정보는 잘못되었습니다.");
     				}
     			})
     		}else{
