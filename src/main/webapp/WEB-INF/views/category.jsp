@@ -13,6 +13,56 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
   <script src="resources/category/category.js"></script>
 <!--   <script src="resources/category/categoryJquery.js"></script> 사용안함 에헴! -->
+  <script type="text/javascript">
+  $(document).ready(function(){
+	 var user = {};
+	 $.ajax({
+		   	url : "checkLogin"        	
+		    }).done(function(d){
+		    	console.log(d);
+		   	user = JSON.parse(d);
+		   	console.log(user.email);
+		   	if(user.state == 0){
+		    		$("#login").show();
+		    		$("#write_btn").hide();
+		    		$("#mypage_nav").hide(); 
+		    		
+		    	}else if(user.email == 'happily0130@naver.com'){
+		    		$("#login").show();
+		    		$("#write_btn").show();
+		    		$("#login").hide();    
+		    		$("#user").text(user.name+"님 반갑습니다.").css({ "font-size": "1.8rem", "margin-top": "6%"});
+		    		var tag ="<a href=''><span class='glyphicon glyphicon-log-out'></span> Logout</a>"
+		    		$("#logout").html(tag);
+		    		//pagereload();
+		    	}else{
+		    		$("#login").show();
+		    		$("#write_btn").hide();
+		    		$("#login").hide();  
+		    		$("#user").text(user.name+"님 반갑습니다.").css({ "font-size": "1.8rem", "margin-top": "6%"});
+		    		var tag ="<a href=''><span class='glyphicon glyphicon-log-out'></span> Logout</a>"
+		    		$("#logout").html(tag);
+		    	}
+		    });
+	
+		$("#logout").click(function(){
+			$.ajax({
+				url:"logout"
+			}).done(function(d){
+				 location.href="/"; 
+			})
+		});
+	
+	  
+	  
+	  
+	  
+  });
+  
+  
+  
+  
+  </script>
 </head>
  <!--body-->   
 <body id="top">
@@ -37,11 +87,14 @@
                 </ul>
               </li>
                 <!--<li><a href="#">Story</a></li>-->
-              <li><a href="/mypage">MyPage</a></li>
+              <li id="mypage_nav"><a href="/mypage">MyPage</a></li>
                 <!--<li><a href="#">고객센터</a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+              <li id="login"><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+              <li id="user"></li>
+              <li id="logout"></li>
+              
               <!--<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>-->
             </ul>
           </div>

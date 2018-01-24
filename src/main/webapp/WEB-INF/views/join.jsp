@@ -106,7 +106,7 @@ $(document).ready(function(){
  				data:{"email":email, "pw":pw, "name":name, "phone":phone, "addr1":addr1, "addr2":addr2, "addr3":addr3}
  			}).done(function(result){
  					alert("회원가입이 완료되었습니다.");
- 					location.href="login";
+ 					location.href="/login";
  				console.log("성공");
  			});
          }
@@ -166,6 +166,7 @@ $(document).ready(function(){
                   <li><a href="/figure">피규어</a></li>
                   <li><a href="/accesory">악세사리</a></li>
                   <li><a href="/clothes">의류</a></li>
+                  <li><a href="etc">기타</a></li>
                 </ul>
               </li>
                 <!--<li><a href="#">Story</a></li>-->
@@ -197,16 +198,16 @@ $(document).ready(function(){
                
                   <label for="email">Email</label>
                        <button id= "checkid" type="button">중복확인</button>
-                  <input type="email" class="form-control" id="email" placeholder="Enter email" maxLength="30">
+                  <input type="email" class="form-control" id="email" placeholder="이메일을 입력해주세요.ex) abc@naver.com" maxLength="30">
                   
                 </div>
                <div class="form-group">
                   <label for="name">Name</label>
-                  <input type="text" class="form-control" id="name" placeholder="Enter name" maxLength="10">
+                  <input type="text" class="form-control" id="name" placeholder="이름을  입력해주세요." maxLength="10">
                 </div>
                 <div class="form-group">
                   <label for="pwd">Password</label>
-                  <input type="password" class="form-control" id="pwd" placeholder="Enter password" maxLength="15">
+                  <input type="password" class="form-control" id="pwd" placeholder="Enter password =>  비밀번호는 15이하로 입력해주세요." maxLength="15">
                 </div>
                 <div class="form-group">
 	                <label for="address">Address</label><br>
@@ -217,7 +218,7 @@ $(document).ready(function(){
                  </div>
                <div class="form-group">
                   <label for="phone">Phone</label>
-                  <input type="text" class="form-control" id="phone" placeholder="Enter phone" maxLength="20">
+                  <input type="text" class="form-control" id="phone" placeholder="Enter phone => '-' 없이 번호를 입력해주세요." maxLength="20">
                 </div>
                 <br>
               <button type="submit" class="btn btn-default" id="btn1">확인</button>

@@ -84,7 +84,7 @@
     				var data = JSON.parse(result);
     				console.log("결과: " +data.stat);
     				if(data.stat == 1){
-    					alert("성공");
+    					/* alert("성공"); */
     					location.href = "/";
     				}else{
     					alert("입력하신 정보는 잘못되었습니다.");
@@ -134,11 +134,11 @@
           <form role="form">
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Email</label>
-              <input type="email" class="form-control" id="email" placeholder="Enter email" maxLength="30">
+              <input type="email" class="form-control" id="email" placeholder="이메일을 입력해주세요." maxLength="30">
             </div>
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="password" class="form-control" id="pwd" placeholder="Enter password" maxLength="15">
+              <input type="password" class="form-control" id="pwd" placeholder="비밀번호를 입력해주세요." maxLength="15">
             </div>
             
               <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-off"></span> 로그인</button>

@@ -21,16 +21,18 @@ $(document).ready(function(){
 		
 		$.ajax({
 		   	url : "checkLogin"        	
-		    }).done(function(d){
+		    }).done(function(d){	
 		    	console.log(d);
 		   	user = JSON.parse(d);
 		   	console.log(user);
 		   	if(user.state == 0){
 		    		$("#login").show();
 		    		$("#write_btn").hide();
+		    		$("#mypage_nav").hide(); 
+		    		
 		    	}else{
 		    		
-		    		$("#login").hide();    
+		    		$("#login").hide();
 		    		$("#user").text(user.name+"님 반갑습니다.").css({ "font-size": "1.8rem", "margin-top": "6%"});
 		    		var tag ="<a href=''><span class='glyphicon glyphicon-log-out'></span> Logout</a>"
 		    		$("#logout").html(tag);
@@ -143,10 +145,11 @@ $(document).ready(function(){
                   <li><a href="/figure">피규어</a></li>
                   <li><a href="/accesory">악세사리</a></li>
                   <li><a href="/clothes">의류</a></li>
+                  <li><a href="etc">기타</a></li>
                 </ul>
               </li>
                 <!--<li><a href="#">Story</a></li>-->
-              <li><a href="/mypage">MyPage</a></li>
+              <li id="mypage_nav"><a href="/mypage">MyPage</a></li>
                 <!--<li><a href="#">고객센터</a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -227,7 +230,7 @@ $(document).ready(function(){
       <div id="alert">   
          <div class="alert_l"><img src="resources/img/alert.png" style="width: 100%; height: 100%">   
          </div>
-          <div class="alert_r"><h4>[공지]~~~~~~~~~~~~~~</h4></div>
+          <div class="alert_r"><h4>[공지]=> </h4></div>
       </div>
          <!--인기상품-->
       <div class="pop">
@@ -244,7 +247,7 @@ $(document).ready(function(){
           <!--글틀-->
           <div class="limit_f">
               <h2>Limited Edition</h2>
-              <h3>품 절 임 박 !</h3>
+              <h3>추천 상품!</h3>
               <h5>2월달까지만 판매되는 상품입니다.</h5>
               <button type="button" class="btn_limited btn-link">워너원 한정판 피규어 보러가기>></button>
           </div>

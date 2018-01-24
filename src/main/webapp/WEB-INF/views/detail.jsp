@@ -10,7 +10,53 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="resources/detail.css" rel="stylesheet" type="text/css" media="all">
-   
+ 
+<script type="text/javascript">
+
+$(document).ready(function(){
+	 var user = {};
+	 $.ajax({
+		   	url : "checkLogin"        	
+		    }).done(function(d){
+		    	console.log(d);
+		   	user = JSON.parse(d);
+		   	console.log(user);
+		   	if(user.state == 0){
+		    		$("#login").show();
+		    		$("#mypage_nav").hide(); 
+		    		$("btndouble").hide();
+		    		var p = "<h1 style='text-align:center; color:navy; font-weight:bold;'>★ 장바구니에 담거나 구매하고 싶다면 <mark style='background: #fcc;'>로그인</mark>을 해주세요.☆</h1>"
+		    		$("#nologin").html(p);
+		    	}else{
+		    		$("#login").hide();
+		    		$("#user").text(user.name+"님 반갑습니다.").css({ "font-size": "1.8rem", "margin-top": "6%"});
+		    		var tag ="<a href=''><span class='glyphicon glyphicon-log-out'></span> Logout</a>"
+		    		$("#logout").html(tag);
+		    		//pagereload();
+		    	}
+		    });
+	
+
+	$("#logout").click(function(){
+		$.ajax({
+			url:"logout"
+		}).done(function(d){
+			 location.href="/"; 
+		})
+	});
+
+	
+	
+	
+});
+
+
+
+
+
+</script>
+
+ 
 </head>
  <!--body-->   
 <body id="top">
@@ -31,16 +77,20 @@
                   <li><a href="/figure">피규어</a></li>
                   <li><a href="/accesory">악세사리</a></li>
                   <li><a href="/clothes">의류</a></li>
+                  <li><a href="etc">기타</a></li>
                 </ul>
               </li>
                 <!--<li><a href="#">Story</a></li>-->
-              <li><a href="/mypage">MyPage</a></li>
+              <li id="mypage_nav"><a href="/mypage">MyPage</a></li>
                 <!--<li><a href="#">고객센터</a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+              <li id="login"><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+              <li id="user"></li>
+              <li id="logout"></li>
+               <!-- <span class="glyphicon glyphicon-log-out"></span> Logout -->
               <!--<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>-->
-            </ul>
+           </ul>
           </div>
       </nav>   
     </header>
@@ -80,12 +130,13 @@
           </div>
           
           <!-- 탭-->
-          
-         <div id="btndouble">
-            <button type="button" class="btn btn-default" id="btncart">장 바 구 니</button>
-          <button type="button" class="btn btn-default" id="btnbuy">바 로 구 매</button>
-         </div>
-
+          <div id="nologin">
+	         <div id="btndouble">
+	            <button type="button" class="btn btn-default" id="btncart">장 바 구 니</button>
+	          <button type="button" class="btn btn-default" id="btnbuy">바 로 구 매</button>
+	         </div>
+           </div>
+           
           <hr>
           
           <div class="comment">

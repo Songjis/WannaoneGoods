@@ -42,6 +42,7 @@ public class LoginController {
 	      System.out.println("controller : "+map);
 	      if(Integer.parseInt(map.get("stat").toString())==1){
 	    	  session.setAttribute("user", map);
+	    	  
 	        }
 	      
 	      return HttpUtil.returnJson(map);
@@ -59,7 +60,10 @@ public class LoginController {
 			}else{
 				data = (user.get("selectLogin"));
 				data2.put("name", data.get("name"));
+				data2.put("email", data.get("email"));
+				
 				data2.put("state", 1);
+				
 				System.out.println("성공 : "+ data2);
 			}
 			return HttpUtil.returnJson(data);

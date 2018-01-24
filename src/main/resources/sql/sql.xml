@@ -7,6 +7,19 @@
       select '테스트' as data
    </select>
    
+   
+   <!-- mypage 회원정보 수정하기 -->
+   <update id="userUpdate" parameterType="hashmap">
+	update members set 
+		email = #{email},
+	    pw    = #{pw},
+	  	name  = #{name},
+		phone = #{phone}, 
+		addr1 = #{addr1}, 
+		addr2 = #{addr2},
+		addr3 = #{addr3} 
+	    where no = #{no}
+	</update>
    <!-- 아이디 비밀번호 비교(로그인시 사용) -->
    <select id="selectLogin" parameterType="hashmap" resultType="hashmap" >
       select * from members where email=#{email} and pw=#{pw}

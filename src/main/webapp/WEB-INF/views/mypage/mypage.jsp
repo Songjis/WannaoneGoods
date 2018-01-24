@@ -47,18 +47,121 @@
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample6_postcode').value = data.zonecode; //5자리 새우편번호 사용
-                document.getElementById('sample6_address').value = fullAddr;
+                document.getElementById('addr1').value = data.zonecode; //5자리 새우편번호 사용
+                document.getElementById('addr2').value = fullAddr;
 
                 // 커서를 상세주소 필드로 이동한다.
-                document.getElementById('sample6_address2').focus();
+                document.getElementById('addr3').focus();
             }
         }).open();
     }
     
     
 </script>
+<script type="text/javascript">
 
+$(document).ready(function(){
+	 var user = {};
+	$.ajax({
+	   	url : "checkLogin"        	
+	    }).done(function(d){
+	    	console.log(d);
+	   	user = JSON.parse(d);
+	   	console.log("id:",user.email);
+	   	console.log("no:",user.no);
+	   	console.log(user);
+	    //var email=user.email;
+	    		$("#login").hide();
+	    		$("#user").text(user.name+"님 반갑습니다.").css({ "font-size": "1.8rem", "margin-top": "6%"});
+	    		var tag ="<a href=''><span class='glyphicon glyphicon-log-out'></span> Logout</a>"
+	    		$("#logout").html(tag);
+	    		//pagereload();
+	    	
+	    		//로그인되어있는 회원 정보들 불러옴(화면에 표시됨)
+	    		$("#no").val(user.no);
+	    		$("#email").val(user.email);
+	    		$("#pw").val(user.pw);
+	    		$("#name").val(user.name);
+	    		$("#phone").val(user.phone);
+	    		$("#addr1").val(user.addr1);
+	    		$("#addr2").val(user.addr2);
+	    		$("#addr3").val(user.addr3);
+	    		
+	    		$( "form" ).on( "submit", function( event ) {
+	    			console.log("form안에:",user.email);
+	    	   		  var form = document.forms[0];
+	    	   	      var formData = new FormData(form);
+	    	   	      
+		    	   	   if(!form.email.value){
+	                       alert("이메일을 입력해주세요.");
+	                       form.email.focus();
+	                    }else if(!form.name.value){
+	                       alert("이름을 입력해주세요.");
+	                       form.name.focus();
+	                    }else if(!form.pw.value){
+		                    alert("비밀번호를 입력해주세요.");
+		                    form.pw.focus();
+	                    }else if(!form.addr1.value){
+		                    alert("주소를 입력해주세요.");
+		                    form.addr1.focus();
+	                    }else if(!form.addr2.value){
+	                    	alert("주소를 입력해주세요.");
+	                    	form.addr2.focus();
+	                    }else if(!form.addr3.value){
+	                    	alert("주소를 입력해주세요.");
+	                    	form.addr3.focus();
+	                    }else if(!form.phone.value){
+	                    	alert("전화번호를 입력해주세요.");
+	                    	form.phone.focus();
+	                    }else{
+	                    	console.log("수정 완료!");
+	    	   		  
+	    	          $.ajax({
+	    	              type:"post",
+	    	              url:"userUpdate",
+	    	              enctype: 'form-data',
+	    	              processData: false,
+	    	              contentType: false,
+	    	              cache: false,
+	    	              data: formData
+	    	           }).done(function(d){
+	    	        	   $.ajax({
+	    	       			url:"logout"
+	    	       		}).done(function(d){
+	    	       			 location.href="/";
+	    	       			 alert("정보 수정이 되었습니다. 다시 로그인 해주세요");
+	    	       		})
+	    	           });
+	    	          event.preventDefault();
+	    	   		}
+	            });
+	    		
+	    });
+	
+	
+	
+	
+
+	$("#logout").click(function(){
+		$.ajax({
+			url:"logout"
+		}).done(function(d){
+			 location.href="/"; 
+		})
+	});
+	
+	
+	
+	
+	
+	
+});
+
+
+
+
+
+</script>
 
 
 
@@ -86,16 +189,20 @@
                   <li><a href="/figure">피규어</a></li>
                   <li><a href="/accesory">악세사리</a></li>
                   <li><a href="/clothes">의류</a></li>
+                  <li><a href="etc">기타</a></li>
                 </ul>
               </li>
                 <!--<li><a href="#">Story</a></li>-->
-              <li><a href="/mypage">MyPage</a></li>
+              <li id="mypage_nav"><a href="/mypage">MyPage</a></li>
                 <!--<li><a href="#">고객센터</a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+             <li id="login"><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+              <li id="user"></li>
+              <li id="logout"></li>
+               <!-- <span class="glyphicon glyphicon-log-out"></span> Logout -->
               <!--<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>-->
-            </ul>
+          </ul>
           </div>
       </nav>   
     </header>
@@ -113,40 +220,44 @@
           <h2>회원정보</h2>
           <div id="profile">
            <form>
+           		<div class="form-group form_no">
+                  <label for="no">no:</label>
+                  <input type="no" class="form-control" name="no" id="no" placeholder="Enter email">
+                </div>
                 <div class="form-group">
                   <label for="email">Email:</label>
-                  <input type="email" class="form-control" id="email" placeholder="Enter email">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
                 </div>
                <div class="form-group">
                   <label for="name">Name:</label>
-                  <input type="text" class="form-control" id="name" placeholder="Enter name">
+                  <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
                 </div>
                 <div class="form-group">
-                  <label for="pwd">Password:</label>
-                  <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                  <label for="pw">Password:</label>
+                  <input type="password" class="form-control" name="pw"  id="pw" placeholder="Enter password">
                 </div>
                 <!-- <div class="form-group">
                   <label for="address">Address:</label>
                   <input type="text" class="form-control" id="address" placeholder="Enter address">
                 </div> -->
                 <label for="address">Address:</label>
-				<input type="text" id="sample6_postcode" placeholder="우편번호">
+				<input type="text" id="addr1" name="addr1" placeholder="우편번호">
 				<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-				<input type="text" id="sample6_address" placeholder="주소">
-				<input type="text" id="sample6_address2" placeholder="상세주소">               
+				<input type="text" id="addr2" name="addr2" placeholder="주소">
+				<input type="text" id="addr3" name="addr3" placeholder="상세주소">               
                 
                <div class="form-group">
                   <label for="phone">phone:</label>
-                  <input type="number" class="form-control" id="phone" placeholder="Enter phone">
+                  <input type="number" class="form-control" name="phone" id="phone" placeholder="Enter phone">
                 </div>
                 <button type="submit" class="btn btn-default" id="btn1">수정</button>
-               <button type="submit" class="btn btn-default" id="btn2">탈퇴</button>
+              <!--  <button type="submit" class="btn btn-default" id="btn2">탈퇴</button> -->
          </form>
          </div>
-          <div id="point">
+          <!-- <div id="point">
               <h2>적립포인트</h2>
               <input type="number" class="form-control" id="number"><h3>point</h3>
-          </div>
+          </div> -->
           
           
           
