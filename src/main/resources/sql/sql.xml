@@ -8,6 +8,13 @@
    </select>
    
    
+   <!-- 장바구니 담는 데이터 넣기 -->
+   <insert id="insertCart" parameterType="hashmap">
+      insert into cart(email, cname, cprice, ccount, cpick, total) values (#{email}, #{cname}, #{cprice}, #{ccount}, #{cpick}, #{total)
+   </insert>
+   
+   
+   
    <!-- mypage 회원정보 수정하기 -->
    <update id="userUpdate" parameterType="hashmap">
 	update members set 

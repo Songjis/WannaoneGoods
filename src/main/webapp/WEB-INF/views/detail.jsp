@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -15,6 +18,10 @@
 
 $(document).ready(function(){
 	 var user = {};
+	 var num = 0;
+	 
+	 
+	 
 	 $.ajax({
 		   	url : "checkLogin"        	
 		    }).done(function(d){
@@ -34,6 +41,11 @@ $(document).ready(function(){
 		    		$("#logout").html(tag);
 		    		//pagereload();
 		    	}
+		   	
+		   	    
+		   	
+		   	
+		   	
 		    });
 	
 
@@ -44,7 +56,47 @@ $(document).ready(function(){
 			 location.href="/"; 
 		})
 	});
+	
+	
+	
+	var list = [];
+	var total = 0;
+	//상품 리스트에 추가 이벤트
+	$("#addcart").click(function(){
+		
+		var name = $("#h1").text();	
+		var price = $("#h2 span").text();
+		var memberpick = $("#menu1 option:checked").text();
+		var ea = $("#count_n").val();
+		var arr = [name, price, memberpick, ea];
+		var tag ="";
+		console.log("addcart : ",name, price, memberpick, ea);
+	
+<%-- 		<% --%>
+// 			List<HashMap<String,Object>> list = new ArrayList<HashMap<String,Object>>();
+// 			list.push(arr);
+<%-- 		%> --%>
+       
+		
+		
+		list.push({"name" : name, "price":price,"memberpick":memberpick,"ea":ea});
+		
+		console.log(list);
+		
+		console.log(user.email, list);
+		
+		for(var i = num; i< list.length; i++){
+			total = total + (Number.parseInt(list[i].price * list[i].ea));
+			tag = '<tr><td class="namename">'+list[i].name+'</td><td class="priceprice">'+list[i].price+'</td><td class="eaea">'+list[i].ea+'</td><td class="pickpick">'+list[i].memberpick+'</td></tr>'
+			$("table tbody").append(tag);
+			num++;
+			
+		}
+		$(".total span").text(total);
+	});
 
+	
+	
 	
 	
 	
@@ -89,7 +141,7 @@ $(document).ready(function(){
               <li id="user"></li>
               <li id="logout"></li>
                <!-- <span class="glyphicon glyphicon-log-out"></span> Logout -->
-              <!--<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>-->
+              <!--<li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>-->
            </ul>
           </div>
       </nav>   
@@ -101,7 +153,7 @@ $(document).ready(function(){
          <!--상품detail-->
       <div id="detail">
             <h1 id="h1">${detail.gname}</h1>
-            <h2 id="h2">가격 : ${detail.gprice}</h2>
+            <h2 id="h2">가격 : <span>${detail.gprice}</span></h2>
           
           <div id="select">
             <h3>멤버 pick(필수!):</h3>
@@ -126,8 +178,46 @@ $(document).ready(function(){
           
           <div id="count">
             <h3>수량:</h3>
-            <input type="number" id="count_n" name="quantity" min="1" max="100" value="1">
+            <input type="number" id="count_n" name="quantity" min="1" max="10" value="1"> *10개 이하로 선택해주세요.
           </div>
+          
+          
+           <button type="button" class="btn btn-info" id="addcart" style="width:20%; font-size:2rem; font-weight:900; float:right;  ">추가</button>
+          
+          
+          <div id="cartbox" style="width : 100%;  background-color:#E9FBFF;">
+          	<table class="table"  style="width : 80%; margin:3% 10%; font-size:2rem;">
+          		<thead>
+          			<tr>
+          				<th>상품명
+          				</th>
+          				
+          				<th>가격
+          				</th>
+          				
+          				<th>수량
+          				</th>
+          				
+          				<th>멤버 pick
+          				</th>
+          			</tr>
+          			
+          		</thead>
+          		<tbody>
+          			
+          			
+          			
+          			
+          		</tbody>
+          	</table>
+          <div id="tt" style="background-color:#FCEFF4; margin-top:5px; padding:10px; text-align:right;">
+          <p class="total" style="font-size:3rem; color:navy;">합계 :&nbsp;&nbsp;<span>   </span>원</p>
+          </div>
+          
+          </div>
+          
+         
+          
           
           <!-- 탭-->
           <div id="nologin">
