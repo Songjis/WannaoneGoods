@@ -201,7 +201,7 @@ $(document).ready(function(){
               <li id="user"></li>
               <li id="logout"></li>
                <!-- <span class="glyphicon glyphicon-log-out"></span> Logout -->
-              <!--<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>-->
+              <li id="cart"><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
           </ul>
           </div>
       </nav>   
@@ -217,7 +217,7 @@ $(document).ready(function(){
             <h1 id="h1">마이페이지</h1>
          
           <hr>
-          <h2>회원정보</h2>
+          <h2>♡회원정보♡</h2>
           <div id="profile">
            <form>
            		<div class="form-group form_no">
@@ -263,7 +263,7 @@ $(document).ready(function(){
           
       </div>
       <!--상품끝-->
-      
+     <!--  
       <div id="buylist">
           <h4>주문내역</h4>
           <div id="buylist_img"><img src="" alt="img" width="10" height="10"></div>
@@ -295,7 +295,7 @@ $(document).ready(function(){
           <hr>
          
           
-      </div>
+      </div> -->
     
   </div><!--콘텐츠끝나는 부분-->
     

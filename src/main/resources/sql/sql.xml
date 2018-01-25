@@ -16,7 +16,7 @@
    
    <!-- 장바구니데이터불러오기 -->
    <select id="selectCart" resultType="hashmap">
-      select * from cart 
+      select * from cart where email = #{email}
    </select>
    
    

@@ -5,7 +5,7 @@
 }
 /*중간 큰틀*/
 #bigcontainer{
-    background-color: beige;
+/*     background-color: beige; */
     width: 70%;
     height: 3250px;
     margin: 0 15%;
@@ -56,7 +56,7 @@ a{
     margin: 6% 0;
     width: 100%;
    /* height: 400px;*/
-    background-color: cornsilk;
+/*     background-color: cornsilk; */
 }
 
 .carousel-inner > .item > img,
@@ -69,7 +69,7 @@ a{
 /*============공지============*/
 
 #alert{
-    background-color: cyan;
+    background-color: #dcf1f5;
     width: 100%;
     height: 50px;
     float:left;
@@ -85,7 +85,7 @@ a{
     width: 70%;
     height: 100%;
     float: left;
-    background-color: azure;
+/*     background-color: azure; */
 }
 h4{
     padding: 0;
@@ -103,7 +103,7 @@ h4{
 .pop{
     width: 100%;
     height: 1000px;
-    background-color:oldlace;
+/*     background-color:oldlace; */
     float: left;
 }
 
@@ -126,12 +126,12 @@ h1{
     height: 40%;
     margin: 0 1.5%;
     margin-bottom: 3%;
-    background-color: azure;
+/*     background-color: azure; */
     float: left;
 }
 /*사진*/
 .pop_p2{
-    background-color: aquamarine;
+/*     background-color: aquamarine; */
     width: 100%;
     height: 80%;
     
@@ -160,7 +160,7 @@ h1{
 .limited{
     margin: 5% 0;
     float: left;
-    background-color: darkgrey;
+/*     background-color: darkgrey; */
     width: 100%;
     height: 300px;
 }
@@ -169,7 +169,7 @@ h1{
     float: left; 
     width: 70%;
     height: 100%;
-    background-color: aqua;
+    background-color: #fcf0ff;
 }
 /*사진틀*/
 .limit_p{
@@ -206,7 +206,7 @@ h5{
 #new{
     width: 100%;
     height: 900px;
-    background-color:oldlace;
+/*     background-color:oldlace; */
     float: left;
 }
 
@@ -216,12 +216,12 @@ h5{
     height: 40%;
     margin: 0 1.5%;
     margin-bottom: 3%;
-    background-color: azure;
+/*     background-color: azure; */
     float: left;
 }
 /*사진*/
 .new_p1{
-    background-color: aquamarine;
+/*     background-color: aquamarine; */
     width: 100%;
     height: 80%;
     

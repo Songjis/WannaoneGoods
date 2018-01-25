@@ -17,6 +17,38 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	
+	var user = {};
+	
+	$.ajax({
+	   	url : "checkLogin"        	
+	    }).done(function(d){	
+	    	console.log(d);
+	   	user = JSON.parse(d);
+	   	console.log(user);
+	   	if(user.state == 0){
+	    		$("#login").show();
+	    		$("#write_btn").hide();
+	    		$("#mypage_nav").hide(); 
+	    		$("#cart").hide();
+	    		
+	    	}else{
+	    		
+	    		$("#login").hide();
+	    		$("#user").text(user.name+"님 반갑습니다.").css({ "font-size": "1.8rem", "margin-top": "6%"});
+	    		var tag ="<a href=''><span class='glyphicon glyphicon-log-out'></span> Logout</a>"
+	    		$("#logout").html(tag);
+	    		//pagereload();
+	    	}
+	    });
+
+	$("#logout").click(function(){
+		$.ajax({
+			url:"logout"
+		}).done(function(d){
+			 location.href="/"; 
+		})
+	});
+	
 	$("form").on("submit", function(event){
 	  	event.preventDefault();
 	  	 var form = document.forms[0];
@@ -76,6 +108,7 @@ $(document).ready(function(){
                   <li><a href="/figure">피규어</a></li>
                   <li><a href="/accesory">악세사리</a></li>
                   <li><a href="/clothes">의류</a></li>
+                  <li><a href="etc">기타</a></li>
                 </ul>
               </li>
                 <!--<li><a href="#">Story</a></li>-->
@@ -83,8 +116,10 @@ $(document).ready(function(){
                 <!--<li><a href="#">고객센터</a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
-              <!--<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>-->
+              <li id="login"><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+              <li id="user"></li>
+              <li id="logout"></li>
+              <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
             </ul>
           </div>
       </nav>   

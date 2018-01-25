@@ -29,6 +29,7 @@ $(document).ready(function(){
 		    		$("#login").show();
 		    		$("#write_btn").hide();
 		    		$("#mypage_nav").hide(); 
+		    		$("#cart").hide();
 		    		
 		    	}else{
 		    		
@@ -157,7 +158,7 @@ $(document).ready(function(){
               <li id="user"></li>
               <li id="logout"></li>
                <!-- <span class="glyphicon glyphicon-log-out"></span> Logout -->
-              <!--<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>-->
+              <li id="cart"><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
             </ul>
           </div>
       </nav>   
@@ -234,7 +235,7 @@ $(document).ready(function(){
       </div>
          <!--인기상품-->
       <div class="pop">
-      		<h1>인기상품</h1>
+      		<h1>추천상품</h1>
       		
           
             
@@ -247,7 +248,7 @@ $(document).ready(function(){
           <!--글틀-->
           <div class="limit_f">
               <h2>Limited Edition</h2>
-              <h3>추천 상품!</h3>
+              <h3>빨리 서두르세요~!</h3>
               <h5>2월달까지만 판매되는 상품입니다.</h5>
               <button type="button" class="btn_limited btn-link">워너원 한정판 피규어 보러가기>></button>
           </div>

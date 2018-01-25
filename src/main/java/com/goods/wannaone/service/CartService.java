@@ -46,13 +46,21 @@ public class CartService implements CartServiceInterface {
 			bean = new DaoBean("Insert", sqlID, data);
 			di.dao(bean);
 		}
-		
 //		bean = new DaoBean("Insert", sqlID, param);
 //		result.put("insertCart", di.dao(bean));
-		
-		
 		return result;
 
+	}
+	
+	@Override
+	public HashMap<String, Object> selectCart(HashMap<String, Object> param){
+		result = new HashMap<String,Object>();
+	
+		// 장바구니 리스트 가져오기
+		sqlID = namespace + ".selectCart";
+		bean = new DaoBean("SelectList", sqlID, param);
+		result.put("selectCart", di.dao(bean));
+		return result;
 	}
 	
 	

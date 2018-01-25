@@ -5,9 +5,9 @@
 }
 /*중간 큰틀*/
 #bigcontainer{
-    background-color: beige;
+/*     background-color: beige; */
     width: 70%;
-    height: 3800px;
+/*     height: 3800px; */
     margin: 0 15%;
 }
 

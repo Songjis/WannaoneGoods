@@ -26,6 +26,7 @@
 		    		$("#login").show();
 		    		$("#write_btn").hide();
 		    		$("#mypage_nav").hide(); 
+		    		$("#cart").hide();
 		    		
 		    	}else if(user.email == 'happily0130@naver.com'){
 		    		$("#login").show();
@@ -95,7 +96,7 @@
               <li id="user"></li>
               <li id="logout"></li>
               
-              <!--<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>-->
+              <li id="cart"><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
             </ul>
           </div>
       </nav>   
@@ -136,7 +137,7 @@
 	        			<img data-ng-src="{{rows.gimg}}" class="cateimg">
 	        		</div>
 	        		<div id="title"><h3>{{rows.gname}}</h3></div>
-            		<div id="price"><h4>{{rows.gprice}}</h4></div>
+            		<div id="price"><h4>{{rows.gprice}}원</h4></div>
             	</div>
             	<div class="pop_btn">
             		<button type="button" class="btn btn-default" data-ng-click="more(rows)">보러가기</button>

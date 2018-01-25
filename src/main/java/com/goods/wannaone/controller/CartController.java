@@ -41,5 +41,14 @@ public class CartController {
 	       return HttpUtil.returnJson(cart);
 	      }
 	
+	
+	@RequestMapping(value = "/selectCart", method = RequestMethod.POST)
+	public ModelAndView selectCart(HttpServletRequest req, HttpServletResponse response){
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("email", req.getParameter("email"));
+		logger.info("selectCart");
+		return HttpUtil.returnJson(csi.selectCart(map));
+	}
+	
 
 }

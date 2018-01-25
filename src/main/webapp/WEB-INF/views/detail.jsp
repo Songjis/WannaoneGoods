@@ -32,6 +32,7 @@ $(document).ready(function(){
 		    		$("#login").show();
 		    		$("#mypage_nav").hide(); 
 		    		$("btndouble").hide();
+		    		$("#cart").hide();
 		    		var p = "<h1 style='text-align:center; color:navy; font-weight:bold;'>★ 장바구니에 담거나 구매하고 싶다면 <mark style='background: #fcc;'>로그인</mark>을 해주세요.☆</h1>"
 		    		$("#nologin").html(p);
 		    	}else{
@@ -133,6 +134,12 @@ $(document).ready(function(){
 		
 		
 	});
+	$("#btnbuy").on("click",function(){
+		alert("구매페이지는 준비중입니다.");
+		
+	});
+	
+	
 	
 	
 		
@@ -177,7 +184,7 @@ $(document).ready(function(){
               <li id="user"></li>
               <li id="logout"></li>
                <!-- <span class="glyphicon glyphicon-log-out"></span> Logout -->
-              <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+              <li id="cart"><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
            </ul>
           </div>
       </nav>   

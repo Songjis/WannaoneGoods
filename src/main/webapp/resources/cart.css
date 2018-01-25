@@ -5,9 +5,9 @@
 }
 /*중간 큰틀*/
 #bigcontainer{
-    background-color: beige;
+/*     background-color: beige; */
     width: 70%;
-    height: 2700px;
+/*     height: 2700px; */
     margin: 0 15%;
 }
 /*=========== 상단메뉴바======*/
@@ -51,10 +51,10 @@ a{
 /*큰틀*/
 #cartpage{
     width: 100%;
-    height: 800px;
-    background-color:ghostwhite;
+/*     height: 800px; */
+/*     background-color:ghostwhite; */
     float: left;
-    
+    margin-bottom: 20%;
 }
 /*글씨*/
 #h1{
@@ -79,21 +79,32 @@ hr{
     float: left;
     width: 100%;
     font-size: 2rem;
-    background-color: pink;
+    background-color: #d8fcfb;
 }
 
 
 #ttcart{
 	float:right;
-	width:30%;
+	width:100%;
+	background-color:#fef0ff;
 }
 
 h2{
 	text-align:center;
 	margin:2% 0;
+	font-weight:bold;
+}
+h3{
+	float:right;
+
 }
 
+#ttcart span{
+	font-size: 4rem;
+	
+}
 /*=================푸터==================*/
+
 /*푸터큰틀*/
 footer{
     position:relative;

@@ -14,7 +14,11 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
+	 
 	 var user = {};
+	 var data = [];
+	 var k= 0;
+	 var delivery = 2500;
 	$.ajax({
 	   	url : "checkLogin"        	
 	    }).done(function(d){
@@ -29,7 +33,37 @@ $(document).ready(function(){
 	    		var tag ="<a href=''><span class='glyphicon glyphicon-log-out'></span> Logout</a>"
 	    		$("#logout").html(tag);
 	    		//pagereload();
-	         
+	        
+	    		
+	    		
+	    		$.ajax({
+	    			url: "selectCart",
+	    			type:"POST",
+	    			data:{"email":user.email}
+	    	    	}).done(function(d){
+	    			
+	    			var result = JSON.parse(d);
+	    			console.log(result);
+	    			data = result.selectCart;
+	    			
+	    	
+	    			
+	    			$.each(result.selectCart, function(key, value){
+	    				var tag="";
+	    				
+	    				tag += '<tr><td class="gnogno">'+ value.gno +'</td><td class="namename">'+ value.gname+'</td><td class="pickpick">'+ value.memberpick +'</td><td class="eaea">'+ value.ea +'</td><td class="priceprice">'+ value.price +'</td></tr>';
+	    				$("table tbody").append(tag);
+	    				 
+	    			     k += parseInt(value.price);
+	    			});
+	    			console.log(user.email);
+	    			
+	    		
+	    			$("#ttcart span").text(k + delivery);
+	    			
+	    		});
+	    		
+	        
 	    		
 	    });
 	
@@ -41,11 +75,7 @@ $(document).ready(function(){
 		})
 	});
 	
-	/* var tag="";
-	
-	tag = '<tr><td class="gnogno">'+list[i].gno+'</td><tr><td class="namename">'+list[i].gname+'</td><td class="pickpick">'+list[i].memberpick+'</td></tr><td class="eaea">'+list[i].ea+'</td><td class="priceprice">'+list[i].price+'</td>'
-	$("table tbody").append(tag);	 */	
-	
+	console.log(user.email);
 	
 	
 	
@@ -104,7 +134,7 @@ $(document).ready(function(){
             <h1 id="h1">장바구니페이지</h1>
          
           <hr>
-          <h2>장바구니 리스트</h2>
+          <h2>☆장바구니 리스트☆</h2>
           
           <div id="cartlist">
           
@@ -124,7 +154,7 @@ $(document).ready(function(){
           				<th>수량
           				</th>
           				
-          				<th>가격
+          				<th>가격 합계
           				</th>
           				
           			</tr>
@@ -141,7 +171,7 @@ $(document).ready(function(){
          </div>
          
           <div id="ttcart">
-              <h3>총 합계: </h3>
+              <h3>☆총 합계: (배송비 :2500원 포함)&nbsp;&nbsp;<span> </span>원</h3>
           
           </div>
           
