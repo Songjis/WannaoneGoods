@@ -181,34 +181,34 @@ $(document).ready(function(){
             <div class="carousel-inner" role="listbox">
 
               <div class="item active">
-                <img src="resources/img/img_chania.jpg" alt="Chania" width="460" height="345">
+                <img src="resources/img/ner.jpg" alt="Chania" width="460" height="345">
                 <div class="carousel-caption">
-                  <h3>img1</h3>
-                  <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                  <h3>강다니엘 츄리닝</h3>
+                  <p>카테고리>>의류</p>
                 </div>
               </div>
 
               <div class="item">
-                <img src="resources/img/img_chania2.jpg" alt="Chania" width="460" height="345">
+                <img src="resources/img/f11.png" alt="Chania" width="460" height="345">
                 <div class="carousel-caption">
-                  <h3>img2</h3>
-                  <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                  <h3>워너원 피규어</h3>
+                  <p>카테고리>>피규어</p>
                 </div>
               </div>
 
               <div class="item">
-                <img src="resources/img/img_flower.jpg" alt="Flower" width="460" height="345">
+                <img src="resources/img/hothot.jpg" alt="Flower" width="460" height="345">
                 <div class="carousel-caption">
-                  <h3>img3</h3>
-                  <p>Beautiful flowers in Kolymbari, Crete.</p>
+                  <h3>워너원 손난로</h3>
+                  <p>카테고리>>리빙</p>
                 </div>
               </div>
 
               <div class="item">
-                <img src="resources/img/img_flower2.jpg" alt="Flower" width="460" height="345">
+                <img src="resources/img/mirror.jpg" alt="Flower" width="460" height="345">
                 <div class="carousel-caption">
-                  <h3>img4</h3>
-                  <p>Beautiful flowers in Kolymbari, Crete.</p>
+                  <h3>워너원 손거울</h3>
+                  <p>카테고리>>리빙</p>
                 </div>
               </div>
 
@@ -230,7 +230,7 @@ $(document).ready(function(){
       <div id="alert">   
          <div class="alert_l"><img src="resources/img/alert.png" style="width: 100%; height: 100%">   
          </div>
-          <div class="alert_r"><h4>[공지]=> </h4></div>
+          <div class="alert_r"><h4>[공지]=> 오늘도 찾아주신 고객님들 정말 감사합니다. 앞으로도 많이 이용해주세요. </h4></div>
       </div>
          <!--인기상품-->
       <div class="pop">

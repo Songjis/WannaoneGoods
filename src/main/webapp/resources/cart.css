@@ -1,0 +1,186 @@
+/*body id*/
+#top{
+   width: 100%;
+   /*background-color: azure; */  
+}
+/*중간 큰틀*/
+#bigcontainer{
+    background-color: beige;
+    width: 70%;
+    height: 2700px;
+    margin: 0 15%;
+}
+/*=========== 상단메뉴바======*/
+#header{
+    background-color:white; 
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+.navbar{
+    width: 70%;
+    margin:  0 15%;
+    
+}
+.container-fluid{
+    padding: 1%;
+    color: black;
+}
+/*폰트컬러블랙*/
+a{
+    color: black;
+    font-size: 17px;
+}
+
+@media (max-width : 768px){
+    /*상단바 고정*/
+    .navbar-fixed-top {
+        position: relative;
+    }
+}
+
+/*=========== 이미지 ===========*/
+
+#banner{
+    margin-top: 7%;
+}
+
+
+/*==============카트페이지============*/
+/*큰틀*/
+#cartpage{
+    width: 100%;
+    height: 800px;
+    background-color:ghostwhite;
+    float: left;
+    
+}
+/*글씨*/
+#h1{
+    padding: 1%;
+    font-size: 3rem;
+    font-weight: 700;
+    
+}
+
+
+/*수평선*/
+hr{
+	
+    border: solid 2px gray;
+    margin: 2% 0;
+    width: 98%;
+    float: left;
+    margin-left:1%;
+}
+
+#cartlist{
+    float: left;
+    width: 100%;
+    font-size: 2rem;
+    background-color: pink;
+}
+
+
+#ttcart{
+	float:right;
+	width:30%;
+}
+
+h2{
+	text-align:center;
+	margin:2% 0;
+}
+
+/*=================푸터==================*/
+/*푸터큰틀*/
+footer{
+    position:relative;
+    width: 100%;
+    height: 200px;
+    background-color: lightblue;
+    float: left;
+}
+/*푸터윗부분*/
+#footer_up{
+    margin:0 15%;
+    width: 70%;
+    height: 40%;
+    background-color: aquamarine;
+}
+/*푸터아랫부분*/
+#footer_down{
+    margin: 0 15%;
+    width: 70%;
+    height: 60%;
+    background-color: azure;
+}
+h6{
+    margin: 1% 0;
+    margin-top: 0;
+    font-style: italic;
+    text-align: center;
+    font-size: 3rem; 
+}
+h7{
+    font-size: 2rem;
+    text-align: center;
+    padding: 0 5%;
+}
+/*alert창*/
+.alert-info{
+     
+     font-size: 2rem;
+     height: 100%;
+     margin: 0;
+}
+
+@media ( max-width:1581px){
+    
+}
+
+.form_no {
+	display : none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

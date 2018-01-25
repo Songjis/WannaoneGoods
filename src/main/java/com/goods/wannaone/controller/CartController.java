@@ -1,6 +1,7 @@
 package com.goods.wannaone.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,10 +24,18 @@ public class CartController {
 	CartServiceInterface csi;
 	
 	
+	@RequestMapping(value = "/cart", method = RequestMethod.GET)
+	public String join() {
+		logger.info("cart");
+		return "cart";
+	}
+	
 	
 	@RequestMapping(value="insertCart", method = RequestMethod.POST)
 	public ModelAndView insertCart(HttpServletResponse resp, HttpServletRequest req){
-		   HashMap<String, Object> param = HttpUtil.paramMap(req);
+		   HashMap<String, Object> param = HttpUtil.paramMap(req); 
+		   System.out.println(param);		   
+		   
 		   HashMap<String, Object> cart = new HashMap<String, Object>();
 		   cart = csi.insertCart(param);
 	       return HttpUtil.returnJson(cart);

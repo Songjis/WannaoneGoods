@@ -10,9 +10,14 @@
    
    <!-- 장바구니 담는 데이터 넣기 -->
    <insert id="insertCart" parameterType="hashmap">
-      insert into cart(email, cname, cprice, ccount, cpick, total) values (#{email}, #{cname}, #{cprice}, #{ccount}, #{cpick}, #{total)
+      insert into cart(gno, email, gname, price, memberpick, ea) values (#{gno}, #{email}, #{gname}, #{price}, #{memberpick}, #{ea}) 
    </insert>
    
+   
+   <!-- 장바구니데이터불러오기 -->
+   <select id="selectCart" resultType="hashmap">
+      select * from cart 
+   </select>
    
    
    <!-- mypage 회원정보 수정하기 -->

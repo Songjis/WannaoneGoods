@@ -19,7 +19,7 @@
 $(document).ready(function(){
 	 var user = {};
 	 var num = 0;
-	 
+	 var gno = ${detail.gno};
 	 
 	 
 	 $.ajax({
@@ -61,45 +61,81 @@ $(document).ready(function(){
 	
 	var list = [];
 	var total = 0;
+	var delivery = 2500;
 	//상품 리스트에 추가 이벤트
-	$("#addcart").click(function(){
+	$("#addcart").off();
+	$("#addcart").on("click",function(){
 		
-		var name = $("#h1").text();	
+		var gname = $("#h1").text();	
 		var price = $("#h2 span").text();
 		var memberpick = $("#menu1 option:checked").text();
-		var ea = $("#count_n").val();
-		var arr = [name, price, memberpick, ea];
+		var ea = $("#count_n option:checked").text();
 		var tag ="";
-		console.log("addcart : ",name, price, memberpick, ea);
-	
+		console.log("addcart : ",gname, price, memberpick, ea);
+		console.log(user.email);
+		var email = user.email;
 <%-- 		<% --%>
 // 			List<HashMap<String,Object>> list = new ArrayList<HashMap<String,Object>>();
 // 			list.push(arr);
 <%-- 		%> --%>
-       
+      
 		
-		
-		list.push({"name" : name, "price":price,"memberpick":memberpick,"ea":ea});
-		
-		console.log(list);
-		
-		console.log(user.email, list);
-		
-		for(var i = num; i< list.length; i++){
-			total = total + (Number.parseInt(list[i].price * list[i].ea));
-			tag = '<tr><td class="namename">'+list[i].name+'</td><td class="priceprice">'+list[i].price+'</td><td class="eaea">'+list[i].ea+'</td><td class="pickpick">'+list[i].memberpick+'</td></tr>'
-			$("table tbody").append(tag);
-			num++;
-			
+		for(var i = 0; i<list.length; i++){
+			if(memberpick == list[i].memberpick){
+				console.log("Equals :", memberpick, list[i].memberpick);
+				list[i].ea = list[i].ea + Number.parseInt(ea);
+				list[i].price = list[i].price + Number.parseInt(price * ea);
+				console.log("listL : ",list[i].ea);
+				
+				break;
+			}else if(memberpick != list[i].memberpick){
+								
+				if(i == (list.length - 1)){
+					
+					console.log("noEquals :", memberpick, list[i].memberpick);
+					list.push({"gno":gno,"email": email, "gname" : gname, "price":(Number.parseInt(price)*Number.parseInt(ea)),"memberpick":memberpick,"ea":Number.parseInt(ea)});	
+					break;
+				}				
+			}
 		}
-		$(".total span").text(total);
+		console.log("list result: ",list);
+		if(list.length == 0){
+			console.log("start");
+			list.push({"gno":gno,"email": email,"gname" : gname, "price":(Number.parseInt(price)*Number.parseInt(ea)),"memberpick":memberpick,"ea":Number.parseInt(ea)});
+		}		
+		$("table tbody").empty();
+		total = 0;
+		console.log("start : " + total);
+		for(var i = 0; i< list.length; i++){			
+			total = total + (Number.parseInt(list[i].price));
+			tag = '<tr><td class="namename">'+list[i].gname+'</td><td class="priceprice">'+list[i].price+'</td><td class="eaea">'+list[i].ea+'</td><td class="pickpick">'+list[i].memberpick+'</td></tr>'
+			$("table tbody").append(tag);		
+		}
+		console.log(total);
+		$(".total span").text(total + delivery);
+		console.log("result : ",list);
+		
+		$("#btncart").off();
+		$("#btncart").on("click",function(){
+			console.log("list result!!!!!!: ",list);
+			$.ajax({
+				url : "insertCart",
+				type:"POST",
+				data:{"list" : JSON.stringify(list)}
+			}).done(function(){
+				alert("장바구니에 성공적으로 담았습니다. 장바구니페이지로 이동합니다.");
+// 				location.href="/cart";
+				console.log("insert");
+				console.log(gno);
+			});
+			
+		});
+		
+		
 	});
-
 	
 	
-	
-	
-	
+		
 });
 
 
@@ -141,7 +177,7 @@ $(document).ready(function(){
               <li id="user"></li>
               <li id="logout"></li>
                <!-- <span class="glyphicon glyphicon-log-out"></span> Logout -->
-              <!--<li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>-->
+              <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
            </ul>
           </div>
       </nav>   
@@ -178,10 +214,17 @@ $(document).ready(function(){
           
           <div id="count">
             <h3>수량:</h3>
-            <input type="number" id="count_n" name="quantity" min="1" max="10" value="1"> *10개 이하로 선택해주세요.
+            <select name="select" id="count_n">
+			    <option value="1">1</option>
+			    <option value="2">2</option>
+			    <option value="3">3</option>
+			    <option value="4">4</option>
+			    <option value="5">5</option>
+			</select>
+             *최대 5개 구매가능합니다.
           </div>
           
-          
+           <h3>*배송료 별도 2500원 입니다.</h3>
            <button type="button" class="btn btn-info" id="addcart" style="width:20%; font-size:2rem; font-weight:900; float:right;  ">추가</button>
           
           
@@ -211,7 +254,7 @@ $(document).ready(function(){
           		</tbody>
           	</table>
           <div id="tt" style="background-color:#FCEFF4; margin-top:5px; padding:10px; text-align:right;">
-          <p class="total" style="font-size:3rem; color:navy;">합계 :&nbsp;&nbsp;<span>   </span>원</p>
+          <p class="total" style="font-size:3rem; color:navy;"> ☆총 합계 (배송비2500원 포함) :&nbsp;&nbsp;<span>   </span>원</p>
           </div>
           
           </div>
