@@ -42,6 +42,7 @@ public class WriteController {
     		 @RequestParam("mimg") MultipartFile[] mimg, @RequestParam("simg") MultipartFile[] simg){
     	
     	HashMap<String, Object> param = HttpUtil.paramMap(req);
+    	System.out.println("comment : " +req.getParameter("content"));
     	HashMap<String, Object> mainImagesMap = wsi.fileOutput(req, mimg);
     	HashMap<String, Object> subImagesMap = wsi.fileOutput(req, simg);
     	

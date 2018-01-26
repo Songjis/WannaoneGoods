@@ -125,7 +125,7 @@ $(document).ready(function(){
 				data:{"list" : JSON.stringify(list)}
 			}).done(function(){
 				alert("장바구니에 성공적으로 담았습니다. 장바구니페이지로 이동합니다.");
-// 				location.href="/cart";
+				location.href="/cart";
 				console.log("insert");
 				console.log(gno);
 			});
@@ -228,7 +228,7 @@ $(document).ready(function(){
 			    <option value="4">4</option>
 			    <option value="5">5</option>
 			</select>
-             *최대 5개 구매가능합니다.
+             
           </div>
           
            <h3>*배송료 별도 2500원 입니다.</h3>
